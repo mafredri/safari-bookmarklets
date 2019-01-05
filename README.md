@@ -4,7 +4,7 @@ Bookmarklets for Safari. Should work on iOS too.
 
 ## Installation
 
-Visit [the GitHub page](https://mafredri.github.io/safari-bookmarklets) (or open [INSTALL.html](./INSTALL.html) in your browser) and simply drag the link (bookmarklet) you want to you bookmarks (Favorites for easy access)..
+Visit [the GitHub page](https://mafredri.github.io/safari-bookmarklets) (or open [docs/index.html](./docs/index.html) in your browser) and simply drag the link (bookmarklet) you want to you bookmarks (Favorites for easy access)..
 
 ## Boorkmarklets
 

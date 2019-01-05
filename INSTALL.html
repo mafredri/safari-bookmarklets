@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Safari Bookmarklets: Installation</title>
+</head>
+<body>
+
+<h1>Safari Bookmarklets: Installation</h1>
+<p>Repository: <a href="https://github.com/mafredri/safari-bookmarklets">github.com/mafredri/safari-bookmarklets</a></p>
+
+<p>Simply drag the link (bookmarklet) you want to you bookmarks (Favorites for easy access).</p>
+<ul>
+<li id="godoc">
+<a href="
+javascript:(function(){
+        /* This tries to handle most cases on GitHub. */
+        const re = /\/((tree|blob|commits?|issues|pull|graphs|settings|network)\/[^/]+|(issues|pulls|projects|wiki|pulse|community|network|settings)$)/;
+        const loc = window.location;
+        window.location = 'https://godoc.org/'+loc.hostname+loc.pathname.replace(re, '');
+})();void(0);
+">GoDoc<a> navigates to GoDoc for a repo, e.g. on GitHub
+<pre>
+javascript:(function(){
+        /* This tries to handle most cases on GitHub. */
+        const re = /\/((tree|blob|commits?|issues|pull|graphs|settings|network)\/[^/]+|(issues|pulls|projects|wiki|pulse|community|network|settings)$)/;
+        const loc = window.location;
+        window.location = 'https://godoc.org/'+loc.hostname+loc.pathname.replace(re, '');
+})();void(0);
+</pre>
+</a>
+<li id="wayback-machine">
+<a href="
+javascript:(function(){
+        let loc = window.location.href;
+        /* Safari error pages don't expose the URL :(... */
+        if (loc === 'safari-resource:/ErrorPage.html') {
+                /* I hope they keep their stylized quotes... */
+                loc = document.querySelector('.error-message').textContent.split('“‎')[1].split('”')[0];
+        }
+        window.location = 'http://web.archive.org/web/*/' + loc;
+})();void(0);
+">Wayback Machine</a> shows the Internet Archive for the page
+<pre>
+javascript:(function(){
+        let loc = window.location.href;
+        /* Safari error pages don't expose the URL :(... */
+        if (loc === 'safari-resource:/ErrorPage.html') {
+                /* I hope they keep their stylized quotes... */
+                loc = document.querySelector('.error-message').textContent.split('“‎')[1].split('”')[0];
+        }
+        window.location = 'http://web.archive.org/web/*/' + loc;
+})();void(0);
+</pre>
+</li>
+</ul>
+
+</body>
+</html>

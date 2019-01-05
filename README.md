@@ -9,6 +9,7 @@ Visit [the GitHub page](https://mafredri.github.io/safari-bookmarklets) (or open
 ## Boorkmarklets
 
 - [GoDoc](https://mafredri.github.io/safari-bookmarklets/index.html#godoc) navigates to GoDoc for a repo, e.g. on GitHub
+- [Google Translate](https://mafredri.github.io/safari-bookmarklets/index.html#google-translate) translates the current page
 - [Wayback Machine](https://mafredri.github.io/safari-bookmarklets/index.html#wayback-machine) shows the Internet Archive for the page
 
 

@@ -1,24 +1,24 @@
 {
-  "name": "safari-bookmarklets",
-  "version": "1.0.0",
-  "description": "Handy bookmarklets for the Safari browser",
-  "main": "index.js",
-  "repository": "https://github.com/mafredri/safari-bookmarklets.git",
-  "author": "Mathias Fredriksson <mafredri@gmail.com>",
-  "license": "MIT",
-  "type": "module",
-  "scripts": {
-    "build": "node build.js"
-  },
-  "dependencies": {
-    "esm": "^3.2.25",
-    "html-escaper": "^2.0.0",
-    "uglify-es": "^3.3.9"
-  },
-  "prettier": {
-    "singleQuote": true,
-    "bracketSpacing": false,
-    "trailingComma": "all",
-    "useTabs": true
-  }
+	"name": "safari-bookmarklets",
+	"version": "1.0.0",
+	"description": "Handy bookmarklets for the Safari browser",
+	"main": "index.js",
+	"repository": "https://github.com/mafredri/safari-bookmarklets.git",
+	"author": "Mathias Fredriksson <mafredri@gmail.com>",
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"build": "node -r esm build.js"
+	},
+	"dependencies": {
+		"esm": "^3.2.25",
+		"html-escaper": "^2.0.0",
+		"uglify-es": "^3.3.9"
+	},
+	"prettier": {
+		"singleQuote": true,
+		"bracketSpacing": false,
+		"trailingComma": "all",
+		"useTabs": true
+	}
 }

@@ -1,76 +1,163 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Safari Bookmarklets: Installation</title>
+	<title>Safari Bookmarklets: Installation</title>
+	<style>
+		pre {
+			font-size: 0.5em;
+			color: #999;
+		}
+	</style>
 </head>
 <body>
+	<h1>Safari Bookmarklets: Installation</h1>
+	<p>Repository: <a href="https://github.com/mafredri/safari-bookmarklets">github.com/mafredri/safari-bookmarklets</a></p>
 
-<h1>Safari Bookmarklets: Installation</h1>
-<p>Repository: <a href="https://github.com/mafredri/safari-bookmarklets">github.com/mafredri/safari-bookmarklets</a></p>
-
-<p>Simply drag the link (bookmarklet) you want to you bookmarks (Favorites for easy access).</p>
-<ul>
+	<p>Simply drag the link (bookmarklet) you want to you bookmarks (Favorites for easy access).</p>
+	<ul>
 <li id="godoc">
-<a href="
-javascript:(function(){
-        /* This tries to handle most cases on GitHub. */
-        const re = /\/((tree|blob|commits?|issues|pull|graphs|settings|network)\/[^/]+|(issues|pulls|projects|wiki|pulse|community|network|settings)$)/;
-        const loc = window.location;
-        window.location = 'https://godoc.org/'+loc.hostname+loc.pathname.replace(re, '');
-})();void(0);
-">GoDoc<a> navigates to GoDoc for a repo, e.g. on GitHub
-<pre>
-javascript:(function(){
-        /* This tries to handle most cases on GitHub. */
-        const re = /\/((tree|blob|commits?|issues|pull|graphs|settings|network)\/[^/]+|(issues|pulls|projects|wiki|pulse|community|network|settings)$)/;
-        const loc = window.location;
-        window.location = 'https://godoc.org/'+loc.hostname+loc.pathname.replace(re, '');
-})();void(0);
-</pre>
-</a>
+	<a href="javascript:(function(){
+/**
+ * GoDoc
+ *
+ * Navigates to GoDoc from the current repository, e.g. on GitHub.
+ *
+ * Author: Mathias Fredriksson
+ * Version: 0.0.0
+ */
+const%20re=/%5C/((tree%7Cblob%7Ccommits?%7Cissues%7Cpull%7Cgraphs%7Csettings%7Cnetwork)%5C/%5B%5E/%5D+%7C(issues%7Cpulls%7Cprojects%7Cwiki%7Cpulse%7Ccommunity%7Cnetwork%7Csettings)$)/,loc=window.location;window.location=%22https://godoc.org/%22+loc.hostname+loc.pathname.replace(re,%22%22);})();void(0);">GoDoc<a>: Navigates to GoDoc from the current repository, e.g. on GitHub.
+	<pre>javascript:(function(){
+/**
+ * GoDoc
+ *
+ * Navigates to GoDoc from the current repository, e.g. on GitHub.
+ *
+ * Author: Mathias Fredriksson
+ * Version: 0.0.0
+ */
+const re=/\/((tree|blob|commits?|issues|pull|graphs|settings|network)\/[^/]+|(issues|pulls|projects|wiki|pulse|community|network|settings)$)/,loc=window.location
+;window.location=&quot;https://godoc.org/&quot;+loc.hostname+loc.pathname.replace(re,&quot;&quot;);})();void(0);</pre>
 </li>
 
 <li id="google-translate">
-<a href="
-javascript:(function(){
-        const href = encodeURIComponent(window.location.href);
-        window.location = 'https://translate.google.com/translate?sl=auto&tl=en&js=y&prev=_t&hl=en&ie=UTF-8&edit-text=&u=' + href;
-})();void(0);
-">Google Translate<a> translates the current page
-<pre>
-javascript:(function(){
-        const href = encodeURIComponent(window.location.href);
-        window.location = 'https://translate.google.com/translate?sl=auto&tl=en&js=y&prev=_t&hl=en&ie=UTF-8&edit-text=&u=' + href;
-})();void(0);
-</pre>
-</a>
+	<a href="javascript:(function(){
+/**
+ * Google Translate
+ *
+ * Translates the current page using automatic language detection. When
+ * clicked on a translated page, will return to the original.
+ *
+ * Author: Mathias Fredriksson
+ * Version: 0.0.0
+ */
+function%20translate()%7Bconst%20t=%22https://translate.google.com/translate?sl=auto&tl=en&js=y&prev=_t&hl=en&ie=UTF-8&edit-text=&u=%22+encodeURIComponent(window.location.href);window.location=t%7Dfunction%20untranslate()%7Blet%20t=window.location.search.split(%22&%22).filter(t=%3Et.startsWith(%22u=%22))%5B0%5D.slice(2);t=decodeURIComponent(t),window.location=t%7Dwindow.location.origin.includes(%22://translate.google.com%22)?untranslate():translate();})();void(0);">Google Translate<a>: Translates the current page using automatic language detection. When clicked on a translated page, will return to the original.
+	<pre>javascript:(function(){
+/**
+ * Google Translate
+ *
+ * Translates the current page using automatic language detection. When
+ * clicked on a translated page, will return to the original.
+ *
+ * Author: Mathias Fredriksson
+ * Version: 0.0.0
+ */
+function translate(){
+const t=&quot;https://translate.google.com/translate?sl=auto&amp;tl=en&amp;js=y&amp;prev=_t&amp;hl=en&amp;ie=UTF-8&amp;edit-text=&amp;u=&quot;+encodeURIComponent(window.location.href)
+;window.location=t}function untranslate(){
+let t=window.location.search.split(&quot;&amp;&quot;).filter(t=&gt;t.startsWith(&quot;u=&quot;))[0].slice(2);t=decodeURIComponent(t),
+window.location=t}window.location.origin.includes(&quot;://translate.google.com&quot;)?untranslate():translate();})();void(0);</pre>
+</li>
+
+<li id="pinboard-add">
+	<a href="javascript:(function(){
+/**
+ * Add to Pinboard
+ *
+ * Open a popup to bookmark the current page in Pinboard and place
+ * selected text in the description field.
+ *
+ * Author: Mathias Fredriksson
+ * Version: 0.0.0
+ */
+const%5Bu,d,t%5D=%5Blocation.href,document.getSelection?document.getSelection():%22%22,document.title%5D.map(t=%3EencodeURIComponent(t));open(%60https://pinboard.in/add?showtags=yes&url=$%7Bu%7D&description=$%7Bd%7D&title=$%7Bt%7D%60,%22Pinboard%22,%22toolbar=no,scrollbars=yes,width=750,height=700%22);})();void(0);">Add to Pinboard<a>: Open a popup to bookmark the current page in Pinboard and place selected text in the description field.
+	<pre>javascript:(function(){
+/**
+ * Add to Pinboard
+ *
+ * Open a popup to bookmark the current page in Pinboard and place
+ * selected text in the description field.
+ *
+ * Author: Mathias Fredriksson
+ * Version: 0.0.0
+ */
+const[u,d,t]=[location.href,document.getSelection?document.getSelection():&quot;&quot;,document.title].map(t=&gt;encodeURIComponent(t))
+
+;open(`https://pinboard.in/add?showtags=yes&amp;url=${u}&amp;description=${d}&amp;title=${t}`,&quot;Pinboard&quot;,&quot;toolbar=no,scrollbars=yes,width=750,height=700&quot;);})();void(0);</pre>
+</li>
+
+<li id="spotify-to-apple-music">
+	<a href="javascript:(function(){
+/**
+ * Spotify to Apple Music
+ *
+ * Searches Apple Music for the song or album being viewed on Spotify.
+ *
+ * Author: Mathias Fredriksson
+ * Version: 0.0.0
+ */
+async%20function%20main()%7Bconst%5Bt,e,n%5D=%5B%22twitter:title%22,%22twitter:audio:artist_name%22,%22og:type%22%5D.map(t=%3Edocument.querySelector(%60meta%5Bproperty=%22$%7Bt%7D%22%5D%60).content);%22music.song%22===n?entity=%22song%22:%22music.album%22===n?entity=%22album%22:alert(%60Unknown%20type:%20$%7Bn%7D%60);let%20r=%60$%7Bt%7D%20$%7Be%7D%60,a=await%20search(r);a%7C%7C(r=r.replace(/%5C(%5B%5E)%5D+%5C)/g,%22%22),a=await%20search(r)),render(a)%7Dfunction%20search(t)%7Bconst%20e=%60https://itunes.apple.com/search?term=$%7Bt=encodeURI(t.replace(/%5C%20/g,%22+%22))%7D&media=music&entity=$%7Bentity%7D%60;return%20new%20Promise((t,n)=%3E%7Bconst%20r=new%20XMLHttpRequest;r.onreadystatechange=function()%7Bif(4===r.readyState)%7Bif(200!==r.status)return%20void%20n(r.status);const%20e=JSON.parse(r.responseText);e.resultCount%7C%7Ct(null),t(e.results)%7D%7D,r.open(%22GET%22,e,!0),r.send(null)%7D)%7Dfunction%20render(t)%7Blet%20e=%5B%5D;for(let%20n%20of%20t)e=%5B...e,%60%3Cp%3E%3Ca%20href=%22$%7Bn.collectionViewUrl%7D%22%3E%3Cimg%20src=%22$%7Bn.artworkUrl100%7D%22%3E$%7Bn.collectionName%7D%20-%20$%7Bn.artistName%7D%3C/a%3E%3C/p%3E%60%5D;document.write(e.join(%22%22))%7Dmain();})();void(0);">Spotify to Apple Music<a>: Searches Apple Music for the song or album being viewed on Spotify.
+	<pre>javascript:(function(){
+/**
+ * Spotify to Apple Music
+ *
+ * Searches Apple Music for the song or album being viewed on Spotify.
+ *
+ * Author: Mathias Fredriksson
+ * Version: 0.0.0
+ */
+async function main(){
+const[t,e,n]=[&quot;twitter:title&quot;,&quot;twitter:audio:artist_name&quot;,&quot;og:type&quot;].map(t=&gt;document.querySelector(`meta[property=&quot;${t}&quot;]`).content)
+;&quot;music.song&quot;===n?entity=&quot;song&quot;:&quot;music.album&quot;===n?entity=&quot;album&quot;:alert(`Unknown type: ${n}`)
+;let r=`${t} ${e}`,a=await search(r);a||(r=r.replace(/\([^)]+\)/g,&quot;&quot;),a=await search(r)),render(a)}function search(t){
+const e=`https://itunes.apple.com/search?term=${t=encodeURI(t.replace(/\ /g,&quot;+&quot;))}&amp;media=music&amp;entity=${entity}`
+;return new Promise((t,n)=&gt;{const r=new XMLHttpRequest;r.onreadystatechange=function(){if(4===r.readyState){
+if(200!==r.status)return void n(r.status);const e=JSON.parse(r.responseText);e.resultCount||t(null),t(e.results)}},
+r.open(&quot;GET&quot;,e,!0),r.send(null)})}function render(t){let e=[]
+;for(let n of t)e=[...e,`&lt;p&gt;&lt;a href=&quot;${n.collectionViewUrl}&quot;&gt;&lt;img src=&quot;${n.artworkUrl100}&quot;&gt;${n.collectionName} - ${n.artistName}&lt;/a&gt;&lt;/p&gt;`]
+;document.write(e.join(&quot;&quot;))}main();})();void(0);</pre>
 </li>
 
 <li id="wayback-machine">
-<a href="
-javascript:(function(){
-        let loc = window.location.href;
-        /* Safari error pages don't expose the URL :(... */
-        if (loc === 'safari-resource:/ErrorPage.html') {
-                /* I hope they keep their stylized quotes... */
-                loc = document.querySelector('.error-message').textContent.split('“‎')[1].split('”')[0];
-        }
-        window.location = 'http://web.archive.org/web/*/' + loc;
-})();void(0);
-">Wayback Machine</a> shows the Internet Archive for the page
-<pre>
-javascript:(function(){
-        let loc = window.location.href;
-        /* Safari error pages don't expose the URL :(... */
-        if (loc === 'safari-resource:/ErrorPage.html') {
-                /* I hope they keep their stylized quotes... */
-                loc = document.querySelector('.error-message').textContent.split('“‎')[1].split('”')[0];
-        }
-        window.location = 'http://web.archive.org/web/*/' + loc;
-})();void(0);
-</pre>
+	<a href="javascript:(function(){
+/**
+ * Wayback Machine
+ *
+ * Opens the latest snapshot of the current URL from Internet Archive.
+ * Clicking the bookmarklet while viewing an archive redirects to the
+ * live page.
+ *
+ * Author: Mathias Fredriksson
+ * Version: 0.0.0
+ */
+let%20loc=window.location.href;function%20showArchive(o)%7Bo=encodeURI(o),window.location=%60http://web.archive.org/web/submit?type=replay&url=$%7Bo%7D%60%7Dfunction%20showLive(o)%7B(o=o.split(%22/%22).slice(5).join(%22/%22)).startsWith(%22http%22)%7C%7C(o=%22http://%22+o),window.location=o%7D%22safari-resource:/ErrorPage.html%22===loc&&(loc=document.querySelector(%22.error-message%22).textContent.split(%22%E2%80%9C%E2%80%8E%22)%5B1%5D.split(%22%E2%80%9D%22)%5B0%5D),loc.includes(%22://web.archive.org/web/%22)?showLive(loc):showArchive(loc);})();void(0);">Wayback Machine<a>: Opens the latest snapshot of the current URL from Internet Archive. Clicking the bookmarklet while viewing an archive redirects to the live page.
+	<pre>javascript:(function(){
+/**
+ * Wayback Machine
+ *
+ * Opens the latest snapshot of the current URL from Internet Archive.
+ * Clicking the bookmarklet while viewing an archive redirects to the
+ * live page.
+ *
+ * Author: Mathias Fredriksson
+ * Version: 0.0.0
+ */
+let loc=window.location.href;function showArchive(o){
+o=encodeURI(o),window.location=`http://web.archive.org/web/submit?type=replay&amp;url=${o}`}function showLive(o){
+(o=o.split(&quot;/&quot;).slice(5).join(&quot;/&quot;)).startsWith(&quot;http&quot;)||(o=&quot;http://&quot;+o),window.location=o}
+&quot;safari-resource:/ErrorPage.html&quot;===loc&amp;&amp;(loc=document.querySelector(&quot;.error-message&quot;).textContent.split(&quot;“‎&quot;)[1].split(&quot;”&quot;)[0]),
+loc.includes(&quot;://web.archive.org/web/&quot;)?showLive(loc):showArchive(loc);})();void(0);</pre>
 </li>
-</ul>
 
+	</ul>
 </body>
 </html>

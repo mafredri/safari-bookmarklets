@@ -39,6 +39,70 @@ const re=/\/((tree|blob|commits?|issues|pull|graphs|settings|network)\/[^/]+|(is
 ;window.location=&quot;https://godoc.org/&quot;+loc.hostname+loc.pathname.replace(re,&quot;&quot;);})();void(0);</pre>
 </li>
 
+<li id="google-translate-selection">
+	<a href="javascript:(function(){
+/**
+ * Google Translate: Selection
+ *
+ * Translate only the selected text using automatic language detection.
+ * Note: This is still a work-in-progress (WIP).
+ *
+ * Author: Mathias Fredriksson
+ * Version: 0.0.1
+ */
+async%20function%20main()%7Bconst%20e=document.getSelection(),t=e.getRangeAt(0),n=document.createTreeWalker(t.commonAncestorContainer,NodeFilter.SHOW_ALL);let%20o=%5B%5D;for(;n.nextNode();)%7Bconst%20t=n.currentNode;e.containsNode(t,!1)&&(o=%5B...o,t%5D)%7Dconst%20a=o.filter(e=%3Ee.nodeType===Node.TEXT_NODE&&%22%22!==e.nodeValue.trim()),s=a.map((e,t)=%3E%60$%7Be.nodeValue.trim()%7D%60).join(%22%5Cn%22),%5Br%5D=await%20translate(s);a.forEach((e,t)=%3E%7Be.nodeValue=r%5Bt%5D%5B0%5D%7D)%7Dfunction%20translate(e,t=%22en%22,n=%22auto%22)%7Bconst%20o=%60https://translate.googleapis.com/translate_a/single?client=gtx&sl=$%7Bn%7D&tl=$%7Bt%7D&dt=t&q=$%7Be=encodeURI(e.replace(/%5C%20/g,%22+%22))%7D%60;return%20new%20Promise((e,t)=%3E%7Bconst%20n=new%20XMLHttpRequest;n.onreadystatechange=function()%7Bif(4===n.readyState)%7Bif(200!==n.status)return%20void%20t(n.status);const%20o=JSON.parse(n.responseText);e(o)%7D%7D,n.open(%22GET%22,o,!0),n.send(null)%7D)%7Dmain();})();void(0);">Google Translate: Selection<a>: Translate only the selected text using automatic language detection. Note: This is still a work-in-progress (WIP).
+	<pre>javascript:(function(){
+/**
+ * Google Translate: Selection
+ *
+ * Translate only the selected text using automatic language detection.
+ * Note: This is still a work-in-progress (WIP).
+ *
+ * Author: Mathias Fredriksson
+ * Version: 0.0.1
+ */
+async function main(){
+const e=document.getSelection(),t=e.getRangeAt(0),n=document.createTreeWalker(t.commonAncestorContainer,NodeFilter.SHOW_ALL)
+;let o=[];for(;n.nextNode();){const t=n.currentNode;e.containsNode(t,!1)&amp;&amp;(o=[...o,t])}
+const a=o.filter(e=&gt;e.nodeType===Node.TEXT_NODE&amp;&amp;&quot;&quot;!==e.nodeValue.trim()),s=a.map((e,t)=&gt;`${e.nodeValue.trim()}`).join(&quot;\n&quot;),[r]=await translate(s)
+;a.forEach((e,t)=&gt;{e.nodeValue=r[t][0]})}function translate(e,t=&quot;en&quot;,n=&quot;auto&quot;){
+const o=`https://translate.googleapis.com/translate_a/single?client=gtx&amp;sl=${n}&amp;tl=${t}&amp;dt=t&amp;q=${e=encodeURI(e.replace(/\ /g,&quot;+&quot;))}`
+;return new Promise((e,t)=&gt;{const n=new XMLHttpRequest;n.onreadystatechange=function(){if(4===n.readyState){
+if(200!==n.status)return void t(n.status);const o=JSON.parse(n.responseText);e(o)}},n.open(&quot;GET&quot;,o,!0),n.send(null)})}
+main();})();void(0);</pre>
+</li>
+
+<li id="google-translate-toolbar">
+	<a href="javascript:(function(){
+/**
+ * Google Translate: Toolbar
+ *
+ * Inject a Google Translate toolbar into the current page, allows
+ * toggling translate on/off but might disrupt the page layout and
+ * doesn't translate as well as the "Google Translate" bookmarklet.
+ *
+ * Author: Mathias Fredriksson
+ * Version: 0.0.1
+ */
+const%20target=document.createElement(%22div%22);target.id=%22googleTranslateElement%22,document.body.append(target);const%20inject=document.createElement(%22script%22);function%20googleTranslateInit()%7Bconst%20e=new%20google.translate.TranslateElement(%7BpageLanguage:%22%22%7D,%22googleTranslateElement%22);console.log(e)%7Dinject.type=%22text/javascript%22,inject.src=%22http://translate.google.com/translate_a/element.js?cb=googleTranslateInit%22,window.googleTranslateInit=googleTranslateInit,document.head.append(inject);})();void(0);">Google Translate: Toolbar<a>: Inject a Google Translate toolbar into the current page, allows toggling translate on/off but might disrupt the page layout and doesn't translate as well as the "Google Translate" bookmarklet.
+	<pre>javascript:(function(){
+/**
+ * Google Translate: Toolbar
+ *
+ * Inject a Google Translate toolbar into the current page, allows
+ * toggling translate on/off but might disrupt the page layout and
+ * doesn&#39;t translate as well as the &quot;Google Translate&quot; bookmarklet.
+ *
+ * Author: Mathias Fredriksson
+ * Version: 0.0.1
+ */
+const target=document.createElement(&quot;div&quot;);target.id=&quot;googleTranslateElement&quot;,document.body.append(target)
+;const inject=document.createElement(&quot;script&quot;);function googleTranslateInit(){
+const e=new google.translate.TranslateElement({pageLanguage:&quot;&quot;},&quot;googleTranslateElement&quot;);console.log(e)}
+inject.type=&quot;text/javascript&quot;,inject.src=&quot;http://translate.google.com/translate_a/element.js?cb=googleTranslateInit&quot;,
+window.googleTranslateInit=googleTranslateInit,document.head.append(inject);})();void(0);</pre>
+</li>
+
 <li id="google-translate">
 	<a href="javascript:(function(){
 /**

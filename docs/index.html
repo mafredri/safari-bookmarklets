@@ -16,16 +16,7 @@
 	<p>Simply drag the link (bookmarklet) you want to you bookmarks (Favorites for easy access).</p>
 	<ul>
 <li id="godoc">
-	<a href="javascript:(function(){
-/**
- * GoDoc
- *
- * Navigates to GoDoc from the current repository, e.g. on GitHub.
- *
- * Author: Mathias Fredriksson
- * Version: 0.0.0
- */
-const%20re=/%5C/((tree%7Cblob%7Ccommits?%7Cissues%7Cpull%7Cgraphs%7Csettings%7Cnetwork)%5C/%5B%5E/%5D+%7C(issues%7Cpulls%7Cprojects%7Cwiki%7Cpulse%7Ccommunity%7Cnetwork%7Csettings)$)/,loc=window.location;window.location=%22https://godoc.org/%22+loc.hostname+loc.pathname.replace(re,%22%22);})();void(0);">GoDoc<a>: Navigates to GoDoc from the current repository, e.g. on GitHub.
+	<a href="javascript:(function(){/**%0A%20*%20GoDoc%0A%20*%0A%20*%20Navigates%20to%20GoDoc%20from%20the%20current%20repository,%20e.g.%20on%20GitHub.%0A%20*%0A%20*%20Author:%20Mathias%20Fredriksson%0A%20*%20Version:%200.0.0%0A%20*/const%20re=/%5C/((tree%7Cblob%7Ccommits?%7Cissues%7Cpull%7Cgraphs%7Csettings%7Cnetwork)%5C/%5B%5E/%5D+%7C(issues%7Cpulls%7Cprojects%7Cwiki%7Cpulse%7Ccommunity%7Cnetwork%7Csettings)$)/,loc=window.location;window.location=&#39;https://godoc.org/&#39;+loc.hostname+loc.pathname.replace(re,&#39;&#39;);})();void(0);">GoDoc<a>: Navigates to GoDoc from the current repository, e.g. on GitHub.
 	<pre>javascript:(function(){
 /**
  * GoDoc
@@ -36,21 +27,11 @@ const%20re=/%5C/((tree%7Cblob%7Ccommits?%7Cissues%7Cpull%7Cgraphs%7Csettings%7Cn
  * Version: 0.0.0
  */
 const re=/\/((tree|blob|commits?|issues|pull|graphs|settings|network)\/[^/]+|(issues|pulls|projects|wiki|pulse|community|network|settings)$)/,loc=window.location
-;window.location=&quot;https://godoc.org/&quot;+loc.hostname+loc.pathname.replace(re,&quot;&quot;);})();void(0);</pre>
+;window.location=&#39;https://godoc.org/&#39;+loc.hostname+loc.pathname.replace(re,&#39;&#39;);})();void(0);</pre>
 </li>
 
 <li id="google-translate-selection">
-	<a href="javascript:(function(){
-/**
- * Google Translate: Selection
- *
- * Translate only the selected text using automatic language detection.
- * Note: This is still a work-in-progress (WIP).
- *
- * Author: Mathias Fredriksson
- * Version: 0.0.1
- */
-async%20function%20main()%7Bconst%20e=document.getSelection(),t=e.getRangeAt(0),n=document.createTreeWalker(t.commonAncestorContainer,NodeFilter.SHOW_ALL);let%20o=%5B%5D;for(;n.nextNode();)%7Bconst%20t=n.currentNode;e.containsNode(t,!1)&&(o=%5B...o,t%5D)%7Dconst%20a=o.filter(e=%3Ee.nodeType===Node.TEXT_NODE&&%22%22!==e.nodeValue.trim()),s=a.map((e,t)=%3E%60$%7Be.nodeValue.trim()%7D%60).join(%22%5Cn%22),%5Br%5D=await%20translate(s);a.forEach((e,t)=%3E%7Be.nodeValue=r%5Bt%5D%5B0%5D%7D)%7Dfunction%20translate(e,t=%22en%22,n=%22auto%22)%7Bconst%20o=%60https://translate.googleapis.com/translate_a/single?client=gtx&sl=$%7Bn%7D&tl=$%7Bt%7D&dt=t&q=$%7Be=encodeURI(e.replace(/%5C%20/g,%22+%22))%7D%60;return%20new%20Promise((e,t)=%3E%7Bconst%20n=new%20XMLHttpRequest;n.onreadystatechange=function()%7Bif(4===n.readyState)%7Bif(200!==n.status)return%20void%20t(n.status);const%20o=JSON.parse(n.responseText);e(o)%7D%7D,n.open(%22GET%22,o,!0),n.send(null)%7D)%7Dmain();})();void(0);">Google Translate: Selection<a>: Translate only the selected text using automatic language detection. Note: This is still a work-in-progress (WIP).
+	<a href="javascript:(function(){/**%0A%20*%20Google%20Translate:%20Selection%0A%20*%0A%20*%20Translate%20only%20the%20selected%20text%20using%20automatic%20language%20detection.%0A%20*%20Note:%20This%20is%20still%20a%20work-in-progress%20(WIP).%0A%20*%0A%20*%20Author:%20Mathias%20Fredriksson%0A%20*%20Version:%200.0.1%0A%20*/async%20function%20main()%7Bconst%20e=document.getSelection(),t=e.getRangeAt(0),n=document.createTreeWalker(t.commonAncestorContainer,NodeFilter.SHOW_ALL);let%20o=%5B%5D;for(;n.nextNode();)%7Bconst%20t=n.currentNode;e.containsNode(t,!1)&amp;&amp;(o=%5B...o,t%5D)%7Dconst%20a=o.filter(e=%3Ee.nodeType===Node.TEXT_NODE&amp;&amp;&#39;&#39;!==e.nodeValue.trim()),s=a.map((e,t)=%3E%60$%7Be.nodeValue.trim()%7D%60).join(&#39;%5Cn&#39;),%5Br%5D=await%20translate(s);a.forEach((e,t)=%3E%7Be.nodeValue=r%5Bt%5D%5B0%5D%7D)%7Dfunction%20translate(e,t=&#39;en&#39;,n=&#39;auto&#39;)%7Bconst%20o=%60https://translate.googleapis.com/translate_a/single?client=gtx&amp;sl=$%7Bn%7D&amp;tl=$%7Bt%7D&amp;dt=t&amp;q=$%7Be=encodeURI(e.replace(/%5C%20/g,&#39;+&#39;))%7D%60;return%20new%20Promise((e,t)=%3E%7Bconst%20n=new%20XMLHttpRequest;n.onreadystatechange=function()%7Bif(4===n.readyState)%7Bif(200!==n.status)return%20void%20t(n.status);const%20o=JSON.parse(n.responseText);e(o)%7D%7D,n.open(&#39;GET&#39;,o,!0),n.send(null)%7D)%7Dmain();})();void(0);">Google Translate: Selection<a>: Translate only the selected text using automatic language detection. Note: This is still a work-in-progress (WIP).
 	<pre>javascript:(function(){
 /**
  * Google Translate: Selection
@@ -64,27 +45,16 @@ async%20function%20main()%7Bconst%20e=document.getSelection(),t=e.getRangeAt(0),
 async function main(){
 const e=document.getSelection(),t=e.getRangeAt(0),n=document.createTreeWalker(t.commonAncestorContainer,NodeFilter.SHOW_ALL)
 ;let o=[];for(;n.nextNode();){const t=n.currentNode;e.containsNode(t,!1)&amp;&amp;(o=[...o,t])}
-const a=o.filter(e=&gt;e.nodeType===Node.TEXT_NODE&amp;&amp;&quot;&quot;!==e.nodeValue.trim()),s=a.map((e,t)=&gt;`${e.nodeValue.trim()}`).join(&quot;\n&quot;),[r]=await translate(s)
-;a.forEach((e,t)=&gt;{e.nodeValue=r[t][0]})}function translate(e,t=&quot;en&quot;,n=&quot;auto&quot;){
-const o=`https://translate.googleapis.com/translate_a/single?client=gtx&amp;sl=${n}&amp;tl=${t}&amp;dt=t&amp;q=${e=encodeURI(e.replace(/\ /g,&quot;+&quot;))}`
+const a=o.filter(e=&gt;e.nodeType===Node.TEXT_NODE&amp;&amp;&#39;&#39;!==e.nodeValue.trim()),s=a.map((e,t)=&gt;`${e.nodeValue.trim()}`).join(&#39;\n&#39;),[r]=await translate(s)
+;a.forEach((e,t)=&gt;{e.nodeValue=r[t][0]})}function translate(e,t=&#39;en&#39;,n=&#39;auto&#39;){
+const o=`https://translate.googleapis.com/translate_a/single?client=gtx&amp;sl=${n}&amp;tl=${t}&amp;dt=t&amp;q=${e=encodeURI(e.replace(/\ /g,&#39;+&#39;))}`
 ;return new Promise((e,t)=&gt;{const n=new XMLHttpRequest;n.onreadystatechange=function(){if(4===n.readyState){
-if(200!==n.status)return void t(n.status);const o=JSON.parse(n.responseText);e(o)}},n.open(&quot;GET&quot;,o,!0),n.send(null)})}
+if(200!==n.status)return void t(n.status);const o=JSON.parse(n.responseText);e(o)}},n.open(&#39;GET&#39;,o,!0),n.send(null)})}
 main();})();void(0);</pre>
 </li>
 
 <li id="google-translate-toolbar">
-	<a href="javascript:(function(){
-/**
- * Google Translate: Toolbar
- *
- * Inject a Google Translate toolbar into the current page, allows
- * toggling translate on/off but might disrupt the page layout and
- * doesn't translate as well as the "Google Translate" bookmarklet.
- *
- * Author: Mathias Fredriksson
- * Version: 0.0.1
- */
-const%20target=document.createElement(%22div%22);target.id=%22googleTranslateElement%22,document.body.append(target);const%20inject=document.createElement(%22script%22);function%20googleTranslateInit()%7Bconst%20e=new%20google.translate.TranslateElement(%7BpageLanguage:%22%22%7D,%22googleTranslateElement%22);console.log(e)%7Dinject.type=%22text/javascript%22,inject.src=%22http://translate.google.com/translate_a/element.js?cb=googleTranslateInit%22,window.googleTranslateInit=googleTranslateInit,document.head.append(inject);})();void(0);">Google Translate: Toolbar<a>: Inject a Google Translate toolbar into the current page, allows toggling translate on/off but might disrupt the page layout and doesn't translate as well as the "Google Translate" bookmarklet.
+	<a href="javascript:(function(){/**%0A%20*%20Google%20Translate:%20Toolbar%0A%20*%0A%20*%20Inject%20a%20Google%20Translate%20toolbar%20into%20the%20current%20page,%20allows%0A%20*%20toggling%20translate%20on/off%20but%20might%20disrupt%20the%20page%20layout%20and%0A%20*%20doesn&#39;t%20translate%20as%20well%20as%20the%20%22Google%20Translate%22%20bookmarklet.%0A%20*%0A%20*%20Author:%20Mathias%20Fredriksson%0A%20*%20Version:%200.0.1%0A%20*/const%20target=document.createElement(&#39;div&#39;);target.id=&#39;googleTranslateElement&#39;,document.body.prepend(target);const%20inject=document.createElement(&#39;script&#39;);function%20googleTranslateInit()%7Bconst%20e=new%20google.translate.TranslateElement(%7BpageLanguage:&#39;&#39;%7D,&#39;googleTranslateElement&#39;);console.log(e)%7Dinject.type=&#39;text/javascript&#39;,inject.src=window.location.protocol+&#39;//translate.google.com/translate_a/element.js?cb=googleTranslateInit&#39;,window.googleTranslateInit=googleTranslateInit,document.head.append(inject);})();void(0);">Google Translate: Toolbar<a>: Inject a Google Translate toolbar into the current page, allows toggling translate on/off but might disrupt the page layout and doesn't translate as well as the "Google Translate" bookmarklet.
 	<pre>javascript:(function(){
 /**
  * Google Translate: Toolbar
@@ -96,25 +66,16 @@ const%20target=document.createElement(%22div%22);target.id=%22googleTranslateEle
  * Author: Mathias Fredriksson
  * Version: 0.0.1
  */
-const target=document.createElement(&quot;div&quot;);target.id=&quot;googleTranslateElement&quot;,document.body.append(target)
-;const inject=document.createElement(&quot;script&quot;);function googleTranslateInit(){
-const e=new google.translate.TranslateElement({pageLanguage:&quot;&quot;},&quot;googleTranslateElement&quot;);console.log(e)}
-inject.type=&quot;text/javascript&quot;,inject.src=&quot;http://translate.google.com/translate_a/element.js?cb=googleTranslateInit&quot;,
+const target=document.createElement(&#39;div&#39;);target.id=&#39;googleTranslateElement&#39;,document.body.prepend(target)
+;const inject=document.createElement(&#39;script&#39;);function googleTranslateInit(){
+const e=new google.translate.TranslateElement({pageLanguage:&#39;&#39;},&#39;googleTranslateElement&#39;);console.log(e)}
+inject.type=&#39;text/javascript&#39;,
+inject.src=window.location.protocol+&#39;//translate.google.com/translate_a/element.js?cb=googleTranslateInit&#39;,
 window.googleTranslateInit=googleTranslateInit,document.head.append(inject);})();void(0);</pre>
 </li>
 
 <li id="google-translate">
-	<a href="javascript:(function(){
-/**
- * Google Translate
- *
- * Translates the current page using automatic language detection. When
- * clicked on a translated page, will return to the original.
- *
- * Author: Mathias Fredriksson
- * Version: 0.0.0
- */
-function%20translate()%7Bconst%20t=%22https://translate.google.com/translate?sl=auto&tl=en&js=y&prev=_t&hl=en&ie=UTF-8&edit-text=&u=%22+encodeURIComponent(window.location.href);window.location=t%7Dfunction%20untranslate()%7Blet%20t=window.location.search.split(%22&%22).filter(t=%3Et.startsWith(%22u=%22))%5B0%5D.slice(2);t=decodeURIComponent(t),window.location=t%7Dwindow.location.origin.includes(%22://translate.google.com%22)?untranslate():translate();})();void(0);">Google Translate<a>: Translates the current page using automatic language detection. When clicked on a translated page, will return to the original.
+	<a href="javascript:(function(){/**%0A%20*%20Google%20Translate%0A%20*%0A%20*%20Translates%20the%20current%20page%20using%20automatic%20language%20detection.%20When%0A%20*%20clicked%20on%20a%20translated%20page,%20will%20return%20to%20the%20original.%0A%20*%0A%20*%20Author:%20Mathias%20Fredriksson%0A%20*%20Version:%200.0.0%0A%20*/function%20translate()%7Bconst%20t=&#39;https://translate.google.com/translate?sl=auto&amp;tl=en&amp;js=y&amp;prev=_t&amp;hl=en&amp;ie=UTF-8&amp;edit-text=&amp;u=&#39;+encodeURIComponent(window.location.href);window.location=t%7Dfunction%20untranslate()%7Blet%20t=window.location.search.split(&#39;&amp;&#39;).filter(t=%3Et.startsWith(&#39;u=&#39;))%5B0%5D.slice(2);t=decodeURIComponent(t),window.location=t%7D%5B&#39;://translate.google.com&#39;,&#39;://translate.googleusercontent.com&#39;%5D.some(t=%3Ewindow.location.origin.includes(t))?untranslate():translate();})();void(0);">Google Translate<a>: Translates the current page using automatic language detection. When clicked on a translated page, will return to the original.
 	<pre>javascript:(function(){
 /**
  * Google Translate
@@ -126,26 +87,15 @@ function%20translate()%7Bconst%20t=%22https://translate.google.com/translate?sl=
  * Version: 0.0.0
  */
 function translate(){
-const t=&quot;https://translate.google.com/translate?sl=auto&amp;tl=en&amp;js=y&amp;prev=_t&amp;hl=en&amp;ie=UTF-8&amp;edit-text=&amp;u=&quot;+encodeURIComponent(window.location.href)
+const t=&#39;https://translate.google.com/translate?sl=auto&amp;tl=en&amp;js=y&amp;prev=_t&amp;hl=en&amp;ie=UTF-8&amp;edit-text=&amp;u=&#39;+encodeURIComponent(window.location.href)
 ;window.location=t}function untranslate(){
-let t=window.location.search.split(&quot;&amp;&quot;).filter(t=&gt;t.startsWith(&quot;u=&quot;))[0].slice(2);t=decodeURIComponent(t),
-window.location=t}window.location.origin.includes(&quot;://translate.google.com&quot;)?untranslate():translate();})();void(0);</pre>
+let t=window.location.search.split(&#39;&amp;&#39;).filter(t=&gt;t.startsWith(&#39;u=&#39;))[0].slice(2);t=decodeURIComponent(t),
+window.location=t}
+[&#39;://translate.google.com&#39;,&#39;://translate.googleusercontent.com&#39;].some(t=&gt;window.location.origin.includes(t))?untranslate():translate();})();void(0);</pre>
 </li>
 
 <li id="pinboard-add">
-	<a href="javascript:(function(){
-/**
- * Add to Pinboard
- *
- * Open a popup to bookmark the current page in Pinboard, information is
- * extracted from meta-tags where possible and some smarts are used for
- * constructing the title and description. If the document defines
- * keywords, tags will be pre-populated as well.
- *
- * Author: Mathias Fredriksson
- * Version: 0.0.1
- */
-const%20url=firstNonEmpty(metaP(%22og:url%22),metaP(%22al:web:url%22),location.href);let%20title=firstNonEmpty(metaID(%22title%22),metaP(%22title%22),metaP(%22og:title%22),metaP(%22twitter:title%22),query(%22h1%22,%22innerText%22),query(%22title%22,%22innerText%22)),description=firstNonEmpty(metaID(%22description%22),metaP(%22description%22),metaP(%22og:description%22),metaP(%22twitter:description%22),metaN(%22description%22));description&&(description=%60Description:%20$%7Bquote(description)%7D%60);let%20tags=%5B%5D,keywords=firstNonEmpty(metaN(%22keywords%22));keywords&&(tags=keywords.split(%22,%22).map(t=%3Et.trim()).filter(t=%3E%22%22!==t));const%20author=firstNonEmpty(metaID(%22author%22),metaN(%22author%22)),siteName=firstNonEmpty(metaP(%22og:site_name%22));author&&!title.includes(author)?title+=%60%20%7C%20$%7Bauthor%7D%60:siteName&&!title.includes(siteName)&&(title+=%60%20%7C%20$%7BsiteName%7D%60);let%20sel=document.getSelection().toString();%22%22!==sel&&(sel=%60Excerpt:%20$%7Bquote(sel)%7D%60),description&&sel?description=%60$%7Bdescription%7D%5Cn$%7Bsel%7D%60:sel&&(description=sel);const%20queryParams=%5B%5B%22url%22,url%5D,%5B%22title%22,title%5D,%5B%22description%22,description%5D,%5B%22tags%22,tags.join(%22,%22)%5D%5D.map(t=%3E%60$%7Bt%5B0%5D%7D=$%7BencodeURIComponent(t%5B1%5D)%7D%60).join(%22&%22);function%20firstNonEmpty(...t)%7Bconst%5Be%5D=t.map(t=%3Et.trim()).filter(t=%3E%22%22!==t);return%20e%7C%7C%22%22%7Dfunction%20query(t,e)%7Bconst%20i=document.querySelector(t);return%20i?i%5Be%5D:%22%22%7Dfunction%20metaID(t)%7Breturn%20query(%60meta#$%7Bt%7D%60,%22content%22)%7Dfunction%20metaN(t)%7Breturn%20query(%60meta%5Bname=%22$%7Bt%7D%22%5D%60,%22content%22)%7Dfunction%20metaP(t)%7Blet%20e=query(%60meta%5Bproperty=%22$%7Bt%7D%22%5D%60,%22content%22);return%20e%7C%7C(e=query(%60meta%5Bitemprop=%22$%7Bt%7D%22%5D%60,%22content%22)),e%7Dfunction%20quote(t)%7Breturn%60%3Cblockquote%3E$%7Bt.trim()%7D%3C/blockquote%3E%60%7Dopen(%60https://pinboard.in/add?showtags=yes&$%7BqueryParams%7D%60,%22Pinboard%22,%22toolbar=no,scrollbars=yes,width=750,height=700%22);})();void(0);">Add to Pinboard<a>: Open a popup to bookmark the current page in Pinboard, information is extracted from meta-tags where possible and some smarts are used for constructing the title and description. If the document defines keywords, tags will be pre-populated as well.
+	<a href="javascript:(function(){/**%0A%20*%20Add%20to%20Pinboard%0A%20*%0A%20*%20Open%20a%20popup%20to%20bookmark%20the%20current%20page%20in%20Pinboard,%20information%20is%0A%20*%20extracted%20from%20meta-tags%20where%20possible%20and%20some%20smarts%20are%20used%20for%0A%20*%20constructing%20the%20title%20and%20description.%20If%20the%20document%20defines%0A%20*%20keywords,%20tags%20will%20be%20pre-populated%20as%20well.%0A%20*%0A%20*%20Author:%20Mathias%20Fredriksson%0A%20*%20Version:%200.0.1%0A%20*/const%20url=firstNonEmpty(metaP(&#39;og:url&#39;),metaP(&#39;al:web:url&#39;),location.href);let%20title=firstNonEmpty(metaID(&#39;title&#39;),metaP(&#39;title&#39;),metaP(&#39;og:title&#39;),metaP(&#39;twitter:title&#39;),query(&#39;h1&#39;,&#39;innerText&#39;),query(&#39;title&#39;,&#39;innerText&#39;)),description=firstNonEmpty(metaID(&#39;description&#39;),metaP(&#39;description&#39;),metaP(&#39;og:description&#39;),metaP(&#39;twitter:description&#39;),metaN(&#39;description&#39;));description&amp;&amp;(description=%60Description:%20$%7Bquote(description)%7D%60);let%20tags=%5B%5D,keywords=firstNonEmpty(metaN(&#39;keywords&#39;));keywords&amp;&amp;(tags=keywords.split(&#39;,&#39;).map(t=%3Et.trim()).filter(t=%3E&#39;&#39;!==t));const%20author=firstNonEmpty(metaID(&#39;author&#39;),metaN(&#39;author&#39;)),siteName=firstNonEmpty(metaP(&#39;og:site_name&#39;));author&amp;&amp;!title.includes(author)?title+=%60%20%7C%20$%7Bauthor%7D%60:siteName&amp;&amp;!title.includes(siteName)&amp;&amp;(title+=%60%20%7C%20$%7BsiteName%7D%60);let%20sel=document.getSelection().toString();&#39;&#39;!==sel&amp;&amp;(sel=%60Excerpt:%20$%7Bquote(sel)%7D%60),description&amp;&amp;sel?description=%60$%7Bdescription%7D%5Cn$%7Bsel%7D%60:sel&amp;&amp;(description=sel);const%20queryParams=%5B%5B&#39;url&#39;,url%5D,%5B&#39;title&#39;,title%5D,%5B&#39;description&#39;,description%5D,%5B&#39;tags&#39;,tags.join(&#39;,&#39;)%5D%5D.map(t=%3E%60$%7Bt%5B0%5D%7D=$%7BencodeURIComponent(t%5B1%5D)%7D%60).join(&#39;&amp;&#39;);function%20firstNonEmpty(...t)%7Bconst%5Be%5D=t.map(t=%3Et.trim()).filter(t=%3E&#39;&#39;!==t);return%20e%7C%7C&#39;&#39;%7Dfunction%20query(t,e)%7Bconst%20i=document.querySelector(t);return%20i?i%5Be%5D:&#39;&#39;%7Dfunction%20metaID(t)%7Breturn%20query(%60meta#$%7Bt%7D%60,&#39;content&#39;)%7Dfunction%20metaN(t)%7Breturn%20query(%60meta%5Bname=%22$%7Bt%7D%22%5D%60,&#39;content&#39;)%7Dfunction%20metaP(t)%7Blet%20e=query(%60meta%5Bproperty=%22$%7Bt%7D%22%5D%60,&#39;content&#39;);return%20e%7C%7C(e=query(%60meta%5Bitemprop=%22$%7Bt%7D%22%5D%60,&#39;content&#39;)),e%7Dfunction%20quote(t)%7Breturn%60%3Cblockquote%3E$%7Bt.trim()%7D%3C/blockquote%3E%60%7Dopen(%60https://pinboard.in/add?showtags=yes&amp;$%7BqueryParams%7D%60,&#39;Pinboard&#39;,&#39;toolbar=no,scrollbars=yes,width=750,height=700&#39;);})();void(0);">Add to Pinboard<a>: Open a popup to bookmark the current page in Pinboard, information is extracted from meta-tags where possible and some smarts are used for constructing the title and description. If the document defines keywords, tags will be pre-populated as well.
 	<pre>javascript:(function(){
 /**
  * Add to Pinboard
@@ -158,34 +108,25 @@ const%20url=firstNonEmpty(metaP(%22og:url%22),metaP(%22al:web:url%22),location.h
  * Author: Mathias Fredriksson
  * Version: 0.0.1
  */
-const url=firstNonEmpty(metaP(&quot;og:url&quot;),metaP(&quot;al:web:url&quot;),location.href)
-;let title=firstNonEmpty(metaID(&quot;title&quot;),metaP(&quot;title&quot;),metaP(&quot;og:title&quot;),metaP(&quot;twitter:title&quot;),query(&quot;h1&quot;,&quot;innerText&quot;),query(&quot;title&quot;,&quot;innerText&quot;)),description=firstNonEmpty(metaID(&quot;description&quot;),metaP(&quot;description&quot;),metaP(&quot;og:description&quot;),metaP(&quot;twitter:description&quot;),metaN(&quot;description&quot;))
-;description&amp;&amp;(description=`Description: ${quote(description)}`);let tags=[],keywords=firstNonEmpty(metaN(&quot;keywords&quot;))
-;keywords&amp;&amp;(tags=keywords.split(&quot;,&quot;).map(t=&gt;t.trim()).filter(t=&gt;&quot;&quot;!==t))
-;const author=firstNonEmpty(metaID(&quot;author&quot;),metaN(&quot;author&quot;)),siteName=firstNonEmpty(metaP(&quot;og:site_name&quot;))
+const url=firstNonEmpty(metaP(&#39;og:url&#39;),metaP(&#39;al:web:url&#39;),location.href)
+;let title=firstNonEmpty(metaID(&#39;title&#39;),metaP(&#39;title&#39;),metaP(&#39;og:title&#39;),metaP(&#39;twitter:title&#39;),query(&#39;h1&#39;,&#39;innerText&#39;),query(&#39;title&#39;,&#39;innerText&#39;)),description=firstNonEmpty(metaID(&#39;description&#39;),metaP(&#39;description&#39;),metaP(&#39;og:description&#39;),metaP(&#39;twitter:description&#39;),metaN(&#39;description&#39;))
+;description&amp;&amp;(description=`Description: ${quote(description)}`);let tags=[],keywords=firstNonEmpty(metaN(&#39;keywords&#39;))
+;keywords&amp;&amp;(tags=keywords.split(&#39;,&#39;).map(t=&gt;t.trim()).filter(t=&gt;&#39;&#39;!==t))
+;const author=firstNonEmpty(metaID(&#39;author&#39;),metaN(&#39;author&#39;)),siteName=firstNonEmpty(metaP(&#39;og:site_name&#39;))
 ;author&amp;&amp;!title.includes(author)?title+=` | ${author}`:siteName&amp;&amp;!title.includes(siteName)&amp;&amp;(title+=` | ${siteName}`)
-;let sel=document.getSelection().toString();&quot;&quot;!==sel&amp;&amp;(sel=`Excerpt: ${quote(sel)}`),
+;let sel=document.getSelection().toString();&#39;&#39;!==sel&amp;&amp;(sel=`Excerpt: ${quote(sel)}`),
 description&amp;&amp;sel?description=`${description}\n${sel}`:sel&amp;&amp;(description=sel)
-;const queryParams=[[&quot;url&quot;,url],[&quot;title&quot;,title],[&quot;description&quot;,description],[&quot;tags&quot;,tags.join(&quot;,&quot;)]].map(t=&gt;`${t[0]}=${encodeURIComponent(t[1])}`).join(&quot;&amp;&quot;)
-;function firstNonEmpty(...t){const[e]=t.map(t=&gt;t.trim()).filter(t=&gt;&quot;&quot;!==t);return e||&quot;&quot;}function query(t,e){
-const i=document.querySelector(t);return i?i[e]:&quot;&quot;}function metaID(t){return query(`meta#${t}`,&quot;content&quot;)}
-function metaN(t){return query(`meta[name=&quot;${t}&quot;]`,&quot;content&quot;)}function metaP(t){
-let e=query(`meta[property=&quot;${t}&quot;]`,&quot;content&quot;);return e||(e=query(`meta[itemprop=&quot;${t}&quot;]`,&quot;content&quot;)),e}
+;const queryParams=[[&#39;url&#39;,url],[&#39;title&#39;,title],[&#39;description&#39;,description],[&#39;tags&#39;,tags.join(&#39;,&#39;)]].map(t=&gt;`${t[0]}=${encodeURIComponent(t[1])}`).join(&#39;&amp;&#39;)
+;function firstNonEmpty(...t){const[e]=t.map(t=&gt;t.trim()).filter(t=&gt;&#39;&#39;!==t);return e||&#39;&#39;}function query(t,e){
+const i=document.querySelector(t);return i?i[e]:&#39;&#39;}function metaID(t){return query(`meta#${t}`,&#39;content&#39;)}
+function metaN(t){return query(`meta[name=&quot;${t}&quot;]`,&#39;content&#39;)}function metaP(t){
+let e=query(`meta[property=&quot;${t}&quot;]`,&#39;content&#39;);return e||(e=query(`meta[itemprop=&quot;${t}&quot;]`,&#39;content&#39;)),e}
 function quote(t){return`&lt;blockquote&gt;${t.trim()}&lt;/blockquote&gt;`}
-open(`https://pinboard.in/add?showtags=yes&amp;${queryParams}`,&quot;Pinboard&quot;,&quot;toolbar=no,scrollbars=yes,width=750,height=700&quot;);})();void(0);</pre>
+open(`https://pinboard.in/add?showtags=yes&amp;${queryParams}`,&#39;Pinboard&#39;,&#39;toolbar=no,scrollbars=yes,width=750,height=700&#39;);})();void(0);</pre>
 </li>
 
 <li id="spotify-to-apple-music">
-	<a href="javascript:(function(){
-/**
- * Spotify to Apple Music
- *
- * Searches Apple Music for the song or album being viewed on Spotify.
- *
- * Author: Mathias Fredriksson
- * Version: 0.0.0
- */
-async%20function%20main()%7Bconst%5Bt,e,n%5D=%5B%22twitter:title%22,%22twitter:audio:artist_name%22,%22og:type%22%5D.map(t=%3Edocument.querySelector(%60meta%5Bproperty=%22$%7Bt%7D%22%5D%60).content);%22music.song%22===n?entity=%22song%22:%22music.album%22===n?entity=%22album%22:alert(%60Unknown%20type:%20$%7Bn%7D%60);let%20r=%60$%7Bt%7D%20$%7Be%7D%60,a=await%20search(r);a%7C%7C(r=r.replace(/%5C(%5B%5E)%5D+%5C)/g,%22%22),a=await%20search(r)),render(a)%7Dfunction%20search(t)%7Bconst%20e=%60https://itunes.apple.com/search?term=$%7Bt=encodeURI(t.replace(/%5C%20/g,%22+%22))%7D&media=music&entity=$%7Bentity%7D%60;return%20new%20Promise((t,n)=%3E%7Bconst%20r=new%20XMLHttpRequest;r.onreadystatechange=function()%7Bif(4===r.readyState)%7Bif(200!==r.status)return%20void%20n(r.status);const%20e=JSON.parse(r.responseText);e.resultCount%7C%7Ct(null),t(e.results)%7D%7D,r.open(%22GET%22,e,!0),r.send(null)%7D)%7Dfunction%20render(t)%7Blet%20e=%5B%5D;for(let%20n%20of%20t)e=%5B...e,%60%3Cp%3E%3Ca%20href=%22$%7Bn.collectionViewUrl%7D%22%3E%3Cimg%20src=%22$%7Bn.artworkUrl100%7D%22%3E$%7Bn.collectionName%7D%20-%20$%7Bn.artistName%7D%3C/a%3E%3C/p%3E%60%5D;document.write(e.join(%22%22))%7Dmain();})();void(0);">Spotify to Apple Music<a>: Searches Apple Music for the song or album being viewed on Spotify.
+	<a href="javascript:(function(){/**%0A%20*%20Spotify%20to%20Apple%20Music%0A%20*%0A%20*%20Searches%20Apple%20Music%20for%20the%20song%20or%20album%20being%20viewed%20on%20Spotify.%0A%20*%0A%20*%20Author:%20Mathias%20Fredriksson%0A%20*%20Version:%200.0.0%0A%20*/async%20function%20main()%7Bconst%5Bt,e,n%5D=%5B&#39;twitter:title&#39;,&#39;twitter:audio:artist_name&#39;,&#39;og:type&#39;%5D.map(t=%3Edocument.querySelector(%60meta%5Bproperty=%22$%7Bt%7D%22%5D%60).content);&#39;music.song&#39;===n?entity=&#39;song&#39;:&#39;music.album&#39;===n?entity=&#39;album&#39;:alert(%60Unknown%20type:%20$%7Bn%7D%60);let%20r=%60$%7Bt%7D%20$%7Be%7D%60,a=await%20search(r);a%7C%7C(r=r.replace(/%5C(%5B%5E)%5D+%5C)/g,&#39;&#39;),a=await%20search(r)),render(a)%7Dfunction%20search(t)%7Bconst%20e=%60https://itunes.apple.com/search?term=$%7Bt=encodeURI(t.replace(/%5C%20/g,&#39;+&#39;))%7D&amp;media=music&amp;entity=$%7Bentity%7D%60;return%20new%20Promise((t,n)=%3E%7Bconst%20r=new%20XMLHttpRequest;r.onreadystatechange=function()%7Bif(4===r.readyState)%7Bif(200!==r.status)return%20void%20n(r.status);const%20e=JSON.parse(r.responseText);e.resultCount%7C%7Ct(null),t(e.results)%7D%7D,r.open(&#39;GET&#39;,e,!0),r.send(null)%7D)%7Dfunction%20render(t)%7Blet%20e=%5B%5D;for(let%20n%20of%20t)e=%5B...e,%60%3Cp%3E%3Ca%20href=%22$%7Bn.collectionViewUrl%7D%22%3E%3Cimg%20src=%22$%7Bn.artworkUrl100%7D%22%3E$%7Bn.collectionName%7D%20-%20$%7Bn.artistName%7D%3C/a%3E%3C/p%3E%60%5D;document.write(e.join(&#39;&#39;))%7Dmain();})();void(0);">Spotify to Apple Music<a>: Searches Apple Music for the song or album being viewed on Spotify.
 	<pre>javascript:(function(){
 /**
  * Spotify to Apple Music
@@ -196,30 +137,36 @@ async%20function%20main()%7Bconst%5Bt,e,n%5D=%5B%22twitter:title%22,%22twitter:a
  * Version: 0.0.0
  */
 async function main(){
-const[t,e,n]=[&quot;twitter:title&quot;,&quot;twitter:audio:artist_name&quot;,&quot;og:type&quot;].map(t=&gt;document.querySelector(`meta[property=&quot;${t}&quot;]`).content)
-;&quot;music.song&quot;===n?entity=&quot;song&quot;:&quot;music.album&quot;===n?entity=&quot;album&quot;:alert(`Unknown type: ${n}`)
-;let r=`${t} ${e}`,a=await search(r);a||(r=r.replace(/\([^)]+\)/g,&quot;&quot;),a=await search(r)),render(a)}function search(t){
-const e=`https://itunes.apple.com/search?term=${t=encodeURI(t.replace(/\ /g,&quot;+&quot;))}&amp;media=music&amp;entity=${entity}`
+const[t,e,n]=[&#39;twitter:title&#39;,&#39;twitter:audio:artist_name&#39;,&#39;og:type&#39;].map(t=&gt;document.querySelector(`meta[property=&quot;${t}&quot;]`).content)
+;&#39;music.song&#39;===n?entity=&#39;song&#39;:&#39;music.album&#39;===n?entity=&#39;album&#39;:alert(`Unknown type: ${n}`)
+;let r=`${t} ${e}`,a=await search(r);a||(r=r.replace(/\([^)]+\)/g,&#39;&#39;),a=await search(r)),render(a)}function search(t){
+const e=`https://itunes.apple.com/search?term=${t=encodeURI(t.replace(/\ /g,&#39;+&#39;))}&amp;media=music&amp;entity=${entity}`
 ;return new Promise((t,n)=&gt;{const r=new XMLHttpRequest;r.onreadystatechange=function(){if(4===r.readyState){
 if(200!==r.status)return void n(r.status);const e=JSON.parse(r.responseText);e.resultCount||t(null),t(e.results)}},
-r.open(&quot;GET&quot;,e,!0),r.send(null)})}function render(t){let e=[]
+r.open(&#39;GET&#39;,e,!0),r.send(null)})}function render(t){let e=[]
 ;for(let n of t)e=[...e,`&lt;p&gt;&lt;a href=&quot;${n.collectionViewUrl}&quot;&gt;&lt;img src=&quot;${n.artworkUrl100}&quot;&gt;${n.collectionName} - ${n.artistName}&lt;/a&gt;&lt;/p&gt;`]
-;document.write(e.join(&quot;&quot;))}main();})();void(0);</pre>
+;document.write(e.join(&#39;&#39;))}main();})();void(0);</pre>
 </li>
 
-<li id="wayback-machine">
-	<a href="javascript:(function(){
+<li id="tori-relinkify">
+	<a href="javascript:(function(){/**%0A%20*%20Tori:%20Relinkify%0A%20*%0A%20*%20Relinkify%20sold%20links%20on%20Tori.fi.%0A%20*%0A%20*%20Author:%20Mathias%20Fredriksson%0A%20*%20Version:%200.0.0%0A%20*/for(const%20e%20of%20Array.from(document.querySelectorAll(&#39;.adw_desc.gray_text&#39;)))%7Bconst%20t=e.parentNode,o=e.childNodes%5B0%5D,r=t.id.replace(/%5Eitem_/,&#39;&#39;),a=o.textContent.replace(/%5C%20/g,&#39;_&#39;).replace(/%5C+/g,&#39;_&#39;).replace(/%5B%C3%84%C3%85%5D/g,&#39;A&#39;).replace(/%5B%C3%A5%C3%A4%5D/g,&#39;a&#39;).replace(&#39;%C3%96&#39;,&#39;O&#39;).replace(&#39;%C3%B6&#39;,&#39;o&#39;).trim(),c=t.querySelectorAll(&#39;.cat_geo%20a&#39;)%5B0%5D.textContent.trim().toLowerCase();console.log(r,a,c);const%20l=document.createElement(&#39;a&#39;);l.classList.add(&#39;item_link&#39;,&#39;nohistory&#39;),l.href=%60https://www.tori.fi/$%7Bc%7D/$%7Ba%7D_$%7Br%7D.htm?aw=1%60,l.textContent=o.textContent,e.insertBefore(l,o),o.remove()%7D})();void(0);">Tori: Relinkify<a>: Relinkify sold links on Tori.fi.
+	<pre>javascript:(function(){
 /**
- * Wayback Machine
+ * Tori: Relinkify
  *
- * Opens the latest snapshot of the current URL from Internet Archive.
- * Clicking the bookmarklet while viewing an archive redirects to the
- * live page.
+ * Relinkify sold links on Tori.fi.
  *
  * Author: Mathias Fredriksson
  * Version: 0.0.0
  */
-let%20loc=window.location.href;function%20showArchive(o)%7Bo=encodeURI(o),window.location=%60http://web.archive.org/web/submit?type=replay&url=$%7Bo%7D%60%7Dfunction%20showLive(o)%7B(o=o.split(%22/%22).slice(5).join(%22/%22)).startsWith(%22http%22)%7C%7C(o=%22http://%22+o),window.location=o%7D%22safari-resource:/ErrorPage.html%22===loc&&(loc=document.querySelector(%22.error-message%22).textContent.split(%22%E2%80%9C%E2%80%8E%22)%5B1%5D.split(%22%E2%80%9D%22)%5B0%5D),loc.includes(%22://web.archive.org/web/%22)?showLive(loc):showArchive(loc);})();void(0);">Wayback Machine<a>: Opens the latest snapshot of the current URL from Internet Archive. Clicking the bookmarklet while viewing an archive redirects to the live page.
+for(const e of Array.from(document.querySelectorAll(&#39;.adw_desc.gray_text&#39;))){
+const t=e.parentNode,o=e.childNodes[0],r=t.id.replace(/^item_/,&#39;&#39;),a=o.textContent.replace(/\ /g,&#39;_&#39;).replace(/\+/g,&#39;_&#39;).replace(/[ÄÅ]/g,&#39;A&#39;).replace(/[åä]/g,&#39;a&#39;).replace(&#39;Ö&#39;,&#39;O&#39;).replace(&#39;ö&#39;,&#39;o&#39;).trim(),c=t.querySelectorAll(&#39;.cat_geo a&#39;)[0].textContent.trim().toLowerCase()
+;console.log(r,a,c);const l=document.createElement(&#39;a&#39;);l.classList.add(&#39;item_link&#39;,&#39;nohistory&#39;),
+l.href=`https://www.tori.fi/${c}/${a}_${r}.htm?aw=1`,l.textContent=o.textContent,e.insertBefore(l,o),o.remove()}})();void(0);</pre>
+</li>
+
+<li id="wayback-machine">
+	<a href="javascript:(function(){/**%0A%20*%20Wayback%20Machine%0A%20*%0A%20*%20Opens%20the%20latest%20snapshot%20of%20the%20current%20URL%20from%20Internet%20Archive.%0A%20*%20Clicking%20the%20bookmarklet%20while%20viewing%20an%20archive%20redirects%20to%20the%0A%20*%20live%20page.%0A%20*%0A%20*%20Author:%20Mathias%20Fredriksson%0A%20*%20Version:%200.0.0%0A%20*/let%20loc=window.location.href;if(&#39;safari-resource:/ErrorPage.html&#39;===loc)%7Bconst%20o=new%20RegExp(&#39;%5B&#39;+String.fromCharCode(8220)+String.fromCharCode(8221)+&#39;%5D&#39;,&#39;g&#39;);loc=(loc=document.querySelector(&#39;.error-message&#39;).textContent.split(o)%5B1%5D).replace(String.fromCharCode(8206),&#39;&#39;)%7Dfunction%20showArchive(o)%7Bo=encodeURI(o),window.location=%60http://web.archive.org/web/submit?type=replay&amp;url=$%7Bo%7D%60%7Dfunction%20showLive(o)%7B(o=o.split(&#39;/&#39;).slice(5).join(&#39;/&#39;)).startsWith(&#39;http&#39;)%7C%7C(o=&#39;http://&#39;+o),window.location=o%7Dloc.includes(&#39;://web.archive.org/web/&#39;)?showLive(loc):showArchive(loc);})();void(0);">Wayback Machine<a>: Opens the latest snapshot of the current URL from Internet Archive. Clicking the bookmarklet while viewing an archive redirects to the live page.
 	<pre>javascript:(function(){
 /**
  * Wayback Machine
@@ -231,11 +178,12 @@ let%20loc=window.location.href;function%20showArchive(o)%7Bo=encodeURI(o),window
  * Author: Mathias Fredriksson
  * Version: 0.0.0
  */
-let loc=window.location.href;function showArchive(o){
-o=encodeURI(o),window.location=`http://web.archive.org/web/submit?type=replay&amp;url=${o}`}function showLive(o){
-(o=o.split(&quot;/&quot;).slice(5).join(&quot;/&quot;)).startsWith(&quot;http&quot;)||(o=&quot;http://&quot;+o),window.location=o}
-&quot;safari-resource:/ErrorPage.html&quot;===loc&amp;&amp;(loc=document.querySelector(&quot;.error-message&quot;).textContent.split(&quot;“‎&quot;)[1].split(&quot;”&quot;)[0]),
-loc.includes(&quot;://web.archive.org/web/&quot;)?showLive(loc):showArchive(loc);})();void(0);</pre>
+let loc=window.location.href;if(&#39;safari-resource:/ErrorPage.html&#39;===loc){
+const o=new RegExp(&#39;[&#39;+String.fromCharCode(8220)+String.fromCharCode(8221)+&#39;]&#39;,&#39;g&#39;)
+;loc=(loc=document.querySelector(&#39;.error-message&#39;).textContent.split(o)[1]).replace(String.fromCharCode(8206),&#39;&#39;)}
+function showArchive(o){o=encodeURI(o),window.location=`http://web.archive.org/web/submit?type=replay&amp;url=${o}`}
+function showLive(o){(o=o.split(&#39;/&#39;).slice(5).join(&#39;/&#39;)).startsWith(&#39;http&#39;)||(o=&#39;http://&#39;+o),window.location=o}
+loc.includes(&#39;://web.archive.org/web/&#39;)?showLive(loc):showArchive(loc);})();void(0);</pre>
 </li>
 
 	</ul>

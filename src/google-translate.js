@@ -7,10 +7,14 @@
  * Author: Mathias Fredriksson
  * Version: 0.0.0
  */
-if (!window.location.origin.includes('://translate.google.com')) {
-	translate();
-} else {
+if (
+	['://translate.google.com', '://translate.googleusercontent.com'].some(s =>
+		window.location.origin.includes(s),
+	)
+) {
 	untranslate();
+} else {
+	translate();
 }
 
 function translate() {

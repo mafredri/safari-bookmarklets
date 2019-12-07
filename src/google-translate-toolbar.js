@@ -13,12 +13,13 @@ target.id = 'googleTranslateElement';
 
 // Add translate container to the bottom because the script will also add a
 // toolbar to the top of the page.
-document.body.append(target);
+document.body.prepend(target);
 
 const inject = document.createElement('script');
 inject.type = 'text/javascript';
 inject.src =
-	'http://translate.google.com/translate_a/element.js?cb=googleTranslateInit';
+	window.location.protocol +
+	'//translate.google.com/translate_a/element.js?cb=googleTranslateInit';
 
 // Make the callback available in the global scope.
 window.googleTranslateInit = googleTranslateInit;

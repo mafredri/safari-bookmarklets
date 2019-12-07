@@ -13,10 +13,13 @@ let loc = window.location.href;
 // Safari error pages don't expose the URL :(...
 if (loc === 'safari-resource:/ErrorPage.html') {
 	// I hope they keep their stylized quotes...
-	loc = document
-		.querySelector('.error-message')
-		.textContent.split('“‎')[1]
-		.split('”')[0];
+	const quot = new RegExp(
+		'[' + String.fromCharCode(8220) + String.fromCharCode(8221) + ']',
+		'g',
+	); // “”
+	loc = document.querySelector('.error-message').textContent.split(quot)[1];
+	// Clean up "invisible" space (Safari bug?).
+	loc = loc.replace(String.fromCharCode(8206), '');
 }
 
 if (!loc.includes('://web.archive.org/web/')) {

@@ -19,8 +19,14 @@ process.exit(0);
 function compileBookmarklets(files) {
 	let bookmarklets = [];
 	for (let f of files) {
-		const bookmarklet = createBookmarklet(join(src, f));
-		bookmarklets = [...bookmarklets, bookmarklet];
+		try {
+			const bookmarklet = createBookmarklet(join(src, f));
+			bookmarklets = [...bookmarklets, bookmarklet];
+		} catch (e) {
+			console.error(`Error creating bookmarklet: ${f}`);
+			console.debug(e);
+			process.exit(1);
+		}
 	}
 	return bookmarklets;
 }
@@ -34,9 +40,18 @@ function createBookmarklet(file) {
 		data = data.slice(end);
 	}
 	const info = parseHeader(header);
-	const {code} = minify(data, {output: {webkit: true}});
+	const {code} = minify(data, {
+		output: {
+			webkit: true,
+			quote_style: 1, // Always single.
+		},
+	});
 	const {code: codeStyled} = minify(data, {
-		output: {max_line_len: 120, webkit: true},
+		output: {
+			max_line_len: 120,
+			webkit: true,
+			quote_style: 1, // Always single.
+		},
 	});
 
 	// TODO: Populate version in header.
@@ -44,7 +59,9 @@ function createBookmarklet(file) {
 		id: basename(file).replace(/\.js$/, ''),
 		name: info.name,
 		description: info.description,
-		src: `javascript:(function(){\n${header}\n${encodeURI(code)}})();void(0);`,
+		src: `javascript:(function(){${encodeURI(header)}${encodeURI(
+			code,
+		)}})();void(0);`,
 		srcStyled: `javascript:(function(){\n${header}\n${codeStyled}})();void(0);`,
 	};
 
@@ -70,7 +87,7 @@ function generateIndexHTML(bookmarklets) {
 		tmpl = bookmarkletTmpl.replace(/{{id}}/g, bm.id);
 		tmpl = tmpl.replace(/{{name}}/g, bm.name);
 		tmpl = tmpl.replace(/{{description}}/g, bm.description);
-		tmpl = tmpl.replace(/{{src}}/g, bm.src);
+		tmpl = tmpl.replace(/{{src}}/g, escape(bm.src));
 		tmpl = tmpl.replace(/{{srcStyled}}/g, escape(bm.srcStyled));
 		return tmpl;
 	}
@@ -114,30 +131,28 @@ function parseHeader(header) {
 	const parts = header.split('\n');
 	const start = parts.shift();
 	if (start !== '/**') {
-		console.error(`Invalid header start: want "/**", got "${start}"`);
-		process.exit(0);
+		throw new Error(`Invalid header start: want "/**", got "${start}"`);
 	}
 
 	let name = parts.shift();
 	if (!name.startsWith(' * ')) {
-		console.error(`Invalid name: want " * Name", got "${name}"`);
-		process.exit(0);
+		throw new Error(`Invalid name: want " * Name", got "${name}"`);
 	}
 	name = name.slice(3);
 
 	// Should be " *" or " * ".
 	let separator = parts.shift();
 	if (separator > 3) {
-		console.error(`Invalid separator: want " *", got "${separator}"`);
-		process.exit(0);
+		throw new Error(`Invalid separator: want " *", got "${separator}"`);
 	}
 
 	let description = '';
 	while (true) {
 		let tmp = parts.shift();
 		if (description === '' && !tmp.startsWith(' * ')) {
-			console.error(`Invalid description: want " * Description", got "${tmp}"`);
-			process.exit(0);
+			throw new Error(
+				`Invalid description: want " * Description", got "${tmp}"`,
+			);
 		}
 		if (tmp.length <= 3) {
 			break;
@@ -149,8 +164,7 @@ function parseHeader(header) {
 	// Description should be followed by a separator too.
 	separator = parts.shift();
 	if (separator > 3) {
-		console.error(`Invalid separator: want " *", got "${separator}"`);
-		process.exit(0);
+		throw new Error(`Invalid separator: want " *", got "${separator}"`);
 	}
 
 	return {name, description};

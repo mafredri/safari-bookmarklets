@@ -6,7 +6,6 @@
 	"repository": "https://github.com/mafredri/safari-bookmarklets.git",
 	"author": "Mathias Fredriksson <mafredri@gmail.com>",
 	"license": "MIT",
-	"type": "module",
 	"scripts": {
 		"build": "node -r esm build.js"
 	},

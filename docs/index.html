@@ -15,6 +15,29 @@
 
 	<p>Simply drag the link (bookmarklet) you want to you bookmarks (Favorites for easy access).</p>
 	<ul>
+<li id="duck-start-go">
+	<a href="javascript:(function(){/**%0A%20*%20DuckStartGo%0A%20*%0A%20*%20Toggle%20between%20DuckDuckGo.%20Starpage.com%20and%20Google,%20maintaining%20the%20search%20query.%0A%20*%0A%20*%20Author:%20Mathias%20Fredriksson%0A%20*%20Version:%200.0.0%0A%20*/switch(window.location.hostname.replace(&#39;www.&#39;,&#39;&#39;))%7Bcase&#39;duckduckgo.com&#39;:toStartpage(q=document.querySelector(&#39;%5Bname=q%5D&#39;).value);break;case&#39;startpage.com&#39;:toGoogle(q=document.querySelector(&#39;#q&#39;).value);break;case&#39;google.com&#39;:var%20q;toDuckDuckGo(q=document.querySelector(&#39;%5Bname=q%5D&#39;).value,!1)%7Dfunction%20toStartpage(e)%7Breturn%20navigateViaForm(&#39;POST&#39;,&#39;https://www.startpage.com/sp/search&#39;,%7Bq:e%7D)%7Dfunction%20toDuckDuckGo(e,o)%7Bif(o)return%20navigateViaForm(&#39;POST&#39;,&#39;https://www.duckduckgo.com/&#39;,%7Bq:e%7D);e=encodeURIComponent(e),document.location=%60https://www.duckduckgo.com/?q=$%7Be%7D%60%7Dfunction%20toGoogle(e)%7Be=encodeURIComponent(e),document.location=%60https://www.google.com/search?q=$%7Be%7D%60%7Dfunction%20navigateViaForm(e,o,t)%7Bconst%20c=document.createElement(&#39;form&#39;);c.style.visibility=&#39;hidden&#39;,c.method=e,c.action=o;for(const%20e%20of%20Object.keys(t))%7Bconst%20o=document.createElement(&#39;input&#39;);o.name=e,o.value=t%5Be%5D,c.appendChild(o)%7Ddocument.body.appendChild(c),c.submit()%7D})();void(0);">DuckStartGo<a>: Toggle between DuckDuckGo. Starpage.com and Google, maintaining the search query.
+	<pre>javascript:(function(){
+/**
+ * DuckStartGo
+ *
+ * Toggle between DuckDuckGo. Starpage.com and Google, maintaining the search query.
+ *
+ * Author: Mathias Fredriksson
+ * Version: 0.0.0
+ */
+switch(window.location.hostname.replace(&#39;www.&#39;,&#39;&#39;)){case&#39;duckduckgo.com&#39;:
+toStartpage(q=document.querySelector(&#39;[name=q]&#39;).value);break;case&#39;startpage.com&#39;:
+toGoogle(q=document.querySelector(&#39;#q&#39;).value);break;case&#39;google.com&#39;:var q
+;toDuckDuckGo(q=document.querySelector(&#39;[name=q]&#39;).value,!1)}function toStartpage(e){
+return navigateViaForm(&#39;POST&#39;,&#39;https://www.startpage.com/sp/search&#39;,{q:e})}function toDuckDuckGo(e,o){
+if(o)return navigateViaForm(&#39;POST&#39;,&#39;https://www.duckduckgo.com/&#39;,{q:e});e=encodeURIComponent(e),
+document.location=`https://www.duckduckgo.com/?q=${e}`}function toGoogle(e){e=encodeURIComponent(e),
+document.location=`https://www.google.com/search?q=${e}`}function navigateViaForm(e,o,t){
+const c=document.createElement(&#39;form&#39;);c.style.visibility=&#39;hidden&#39;,c.method=e,c.action=o;for(const e of Object.keys(t)){
+const o=document.createElement(&#39;input&#39;);o.name=e,o.value=t[e],c.appendChild(o)}document.body.appendChild(c),c.submit()}})();void(0);</pre>
+</li>
+
 <li id="godoc">
 	<a href="javascript:(function(){/**%0A%20*%20GoDoc%0A%20*%0A%20*%20Navigates%20to%20GoDoc%20from%20the%20current%20repository,%20e.g.%20on%20GitHub.%0A%20*%0A%20*%20Author:%20Mathias%20Fredriksson%0A%20*%20Version:%200.0.0%0A%20*/const%20re=/%5C/((tree%7Cblob%7Ccommits?%7Cissues%7Cpull%7Cgraphs%7Csettings%7Cnetwork)%5C/%5B%5E/%5D+%7C(issues%7Cpulls%7Cprojects%7Cwiki%7Cpulse%7Ccommunity%7Cnetwork%7Csettings)$)/,loc=window.location;window.location=&#39;https://godoc.org/&#39;+loc.hostname+loc.pathname.replace(re,&#39;&#39;);})();void(0);">GoDoc<a>: Navigates to GoDoc from the current repository, e.g. on GitHub.
 	<pre>javascript:(function(){

@@ -20,8 +20,3 @@ Visit [the GitHub page](https://mafredri.github.io/safari-bookmarklets) (or open
 - [Tori: Relinkify](https://mafredri.github.io/safari-bookmarklets/index.html?cache=1589635503383#tori-relinkify): Relinkify sold links on Tori.fi.
 - [Wayback Machine](https://mafredri.github.io/safari-bookmarklets/index.html?cache=1589635503383#wayback-machine): Opens the latest snapshot of the current URL from Internet Archive. Clicking the bookmarklet while viewing an archive redirects to the live page.
 <!-- {{/bookmarklets}} -->
-
-## TODO
-
-- Create a build script to minimize bookmarklets
-- Automatically generate list of bookmarklets

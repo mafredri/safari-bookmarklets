@@ -28,7 +28,7 @@ async function main() {
 
 	// Grab all non-empty text nodes.
 	const textNodes = nodes.filter(
-		n => n.nodeType === Node.TEXT_NODE && n.nodeValue.trim() !== '',
+		(n) => n.nodeType === Node.TEXT_NODE && n.nodeValue.trim() !== '',
 	);
 	const query = textNodes.map((n, i) => `${n.nodeValue.trim()}`).join('\n');
 	const [translations] = await translate(query);
@@ -47,7 +47,7 @@ function translate(query, to = 'en', from = 'auto') {
 		// Sometimes `fetch` is polyfilled and doesn't work as
 		// expected, so we use XMLHttpRequest which is more safe.
 		const xhr = new XMLHttpRequest();
-		xhr.onreadystatechange = function() {
+		xhr.onreadystatechange = function () {
 			if (xhr.readyState === 4) {
 				if (xhr.status !== 200) {
 					reject(xhr.status);

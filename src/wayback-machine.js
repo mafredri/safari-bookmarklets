@@ -34,10 +34,7 @@ function showArchive(loc) {
 }
 function showLive(loc) {
 	// Strip away "http://web.archive.org/web/*/", what remains is the site URL.
-	loc = loc
-		.split('/')
-		.slice(5)
-		.join('/');
+	loc = loc.split('/').slice(5).join('/');
 	// Add http if it's missing, otherwise the archive is reloaded.
 	// Note: Should this be https instead?
 	if (!loc.startsWith('http')) {

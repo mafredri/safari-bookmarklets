@@ -13,7 +13,7 @@ async function main() {
 		'twitter:title',
 		'twitter:audio:artist_name',
 		'og:type',
-	].map(x => document.querySelector(`meta[property="${x}"]`).content);
+	].map((x) => document.querySelector(`meta[property="${x}"]`).content);
 
 	if (type === 'music.song') {
 		entity = 'song';
@@ -41,7 +41,7 @@ function search(query) {
 	return new Promise((resolve, reject) => {
 		// Spotify seems to have broken fetch, so we use good old xhr.
 		const xhr = new XMLHttpRequest();
-		xhr.onreadystatechange = function() {
+		xhr.onreadystatechange = function () {
 			if (xhr.readyState === 4) {
 				if (xhr.status !== 200) {
 					reject(xhr.status);
@@ -66,9 +66,7 @@ function render(results) {
 	for (let r of results) {
 		html = [
 			...html,
-			`<p><a href="${r.collectionViewUrl}"><img src="${r.artworkUrl100}">${
-				r.collectionName
-			} - ${r.artistName}</a></p>`,
+			`<p><a href="${r.collectionViewUrl}"><img src="${r.artworkUrl100}">${r.collectionName} - ${r.artistName}</a></p>`,
 		];
 	}
 	document.write(html.join(''));

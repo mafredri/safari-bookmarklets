@@ -8,7 +8,7 @@
  * Version: 0.0.0
  */
 if (
-	['://translate.google.com', '://translate.googleusercontent.com'].some(s =>
+	['://translate.google.com', '://translate.googleusercontent.com'].some((s) =>
 		window.location.origin.includes(s),
 	)
 ) {
@@ -27,7 +27,7 @@ function translate() {
 function untranslate() {
 	let url = window.location.search
 		.split('&')
-		.filter(qp => qp.startsWith('u='))[0]
+		.filter((qp) => qp.startsWith('u='))[0]
 		.slice(2);
 	url = decodeURIComponent(url);
 	window.location = url;

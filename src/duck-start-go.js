@@ -1,5 +1,5 @@
 /**
- * DuckStartGo
+ * DuckStartYipGo
  *
  * Toggle between DuckDuckGo. Starpage.com and Google, maintaining the search
  * query. From DuckDuckGo to Startpage.com, from Startpage.com to Google and
@@ -7,8 +7,10 @@
  * highlighted text via DuckDuckGo. If no text is highlighted, simply navigate
  * to DuckDuckGo.
  *
+ * This bookmarklet now falls back to Yippy before Google.
+ *
  * Author: Mathias Fredriksson
- * Version: 0.0.1
+ * Version: 0.0.2
  */
 function run() {
 	switch (window.location.hostname.replace('www.', '')) {
@@ -18,6 +20,10 @@ function run() {
 		case 'startpage.com':
 			var q = document.querySelector('#q').value;
 			// return toDuckDuckGo(q, true);
+			return toYippy(q);
+			break;
+		case 'yippy.com':
+			var q = document.querySelector('#input-query').value;
 			return toGoogle(q);
 			break;
 		case 'google.com':
@@ -45,6 +51,11 @@ function toDuckDuckGo(q, post) {
 	}
 	q = encodeURIComponent(q);
 	document.location = `https://www.duckduckgo.com/?q=${q}`;
+}
+
+function toYippy(q) {
+	q = encodeURIComponent(q);
+	document.location = `https://yippy.com/search?query=${q}`;
 }
 
 function toGoogle(q) {

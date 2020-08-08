@@ -6,7 +6,6 @@
  * from Google to DuckDuckGo. If none of these sites are active, search for the
  * highlighted text via DuckDuckGo. If no text is highlighted, simply navigate
  * to DuckDuckGo.
- *
  * This bookmarklet now falls back to Yippy before Google.
  *
  * Author: Mathias Fredriksson

@@ -16,10 +16,10 @@
 	<p>Simply drag the link (bookmarklet) you want to you bookmarks (Favorites for easy access).</p>
 	<ul>
 <li id="duck-start-go">
-	<a href="javascript:(function(){/**%0A%20*%20DuckStartGo%0A%20*%0A%20*%20Toggle%20between%20DuckDuckGo.%20Starpage.com%20and%20Google,%20maintaining%20the%20search%0A%20*%20query.%20From%20DuckDuckGo%20to%20Startpage.com,%20from%20Startpage.com%20to%20Google%20and%0A%20*%20from%20Google%20to%20DuckDuckGo.%20If%20none%20of%20these%20sites%20are%20active,%20search%20for%20the%0A%20*%20highlighted%20text%20via%20DuckDuckGo.%20If%20no%20text%20is%20highlighted,%20simply%20navigate%0A%20*%20to%20DuckDuckGo.%0A%20*%0A%20*%20Author:%20Mathias%20Fredriksson%0A%20*%20Version:%200.0.1%0A%20*/function%20run()%7Bswitch(window.location.hostname.replace(&#39;www.&#39;,&#39;&#39;))%7Bcase&#39;duckduckgo.com&#39;:return%20toStartpage(document.querySelector(&#39;%5Bname=q%5D&#39;).value);case&#39;startpage.com&#39;:return%20toGoogle(document.querySelector(&#39;#q&#39;).value);case&#39;google.com&#39;:return%20toDuckDuckGo(document.querySelector(&#39;%5Bname=q%5D&#39;).value,!1);default:let%20t=document.getSelection().toString();if(&#39;&#39;!==t)return%20toDuckDuckGo(t,!1)%7Dwindow.location=&#39;https://www.duckduckgo.com&#39;%7Dfunction%20toStartpage(t)%7Breturn%20navigateViaForm(&#39;POST&#39;,&#39;https://www.startpage.com/sp/search&#39;,%7Bq:t%7D)%7Dfunction%20toDuckDuckGo(t,o)%7Bif(o)return%20navigateViaForm(&#39;POST&#39;,&#39;https://www.duckduckgo.com/&#39;,%7Bq:t%7D);t=encodeURIComponent(t),document.location=%60https://www.duckduckgo.com/?q=$%7Bt%7D%60%7Dfunction%20toGoogle(t)%7Bt=encodeURIComponent(t),document.location=%60https://www.google.com/search?q=$%7Bt%7D%60%7Dfunction%20navigateViaForm(t,o,e)%7Bconst%20c=document.createElement(&#39;form&#39;);c.style.visibility=&#39;hidden&#39;,c.method=t,c.action=o;for(const%20t%20of%20Object.keys(e))%7Bconst%20o=document.createElement(&#39;input&#39;);o.name=t,o.value=e%5Bt%5D,c.appendChild(o)%7Ddocument.body.appendChild(c),c.submit()%7Drun();})();void(0);">DuckStartGo<a>: Toggle between DuckDuckGo. Starpage.com and Google, maintaining the search query. From DuckDuckGo to Startpage.com, from Startpage.com to Google and from Google to DuckDuckGo. If none of these sites are active, search for the highlighted text via DuckDuckGo. If no text is highlighted, simply navigate to DuckDuckGo.
+	<a href="javascript:(function(){/**%0A%20*%20DuckStartYipGo%0A%20*%0A%20*%20Toggle%20between%20DuckDuckGo.%20Starpage.com%20and%20Google,%20maintaining%20the%20search%0A%20*%20query.%20From%20DuckDuckGo%20to%20Startpage.com,%20from%20Startpage.com%20to%20Google%20and%0A%20*%20from%20Google%20to%20DuckDuckGo.%20If%20none%20of%20these%20sites%20are%20active,%20search%20for%20the%0A%20*%20highlighted%20text%20via%20DuckDuckGo.%20If%20no%20text%20is%20highlighted,%20simply%20navigate%0A%20*%20to%20DuckDuckGo.%0A%20*%0A%20*%20This%20bookmarklet%20now%20falls%20back%20to%20Yippy%20before%20Google.%0A%20*%0A%20*%20Author:%20Mathias%20Fredriksson%0A%20*%20Version:%200.0.2%0A%20*/function%20run()%7Bswitch(window.location.hostname.replace(&#39;www.&#39;,&#39;&#39;))%7Bcase&#39;duckduckgo.com&#39;:return%20toStartpage(document.querySelector(&#39;%5Bname=q%5D&#39;).value);case&#39;startpage.com&#39;:return%20toYippy(document.querySelector(&#39;#q&#39;).value);case&#39;yippy.com&#39;:return%20toGoogle(document.querySelector(&#39;#input-query&#39;).value);case&#39;google.com&#39;:return%20toDuckDuckGo(document.querySelector(&#39;%5Bname=q%5D&#39;).value,!1);default:let%20o=document.getSelection().toString();if(&#39;&#39;!==o)return%20toDuckDuckGo(o,!1)%7Dwindow.location=&#39;https://www.duckduckgo.com&#39;%7Dfunction%20toStartpage(o)%7Breturn%20navigateViaForm(&#39;POST&#39;,&#39;https://www.startpage.com/sp/search&#39;,%7Bq:o%7D)%7Dfunction%20toDuckDuckGo(o,t)%7Bif(t)return%20navigateViaForm(&#39;POST&#39;,&#39;https://www.duckduckgo.com/&#39;,%7Bq:o%7D);o=encodeURIComponent(o),document.location=%60https://www.duckduckgo.com/?q=$%7Bo%7D%60%7Dfunction%20toYippy(o)%7Bo=encodeURIComponent(o),document.location=%60https://yippy.com/search?query=$%7Bo%7D%60%7Dfunction%20toGoogle(o)%7Bo=encodeURIComponent(o),document.location=%60https://www.google.com/search?q=$%7Bo%7D%60%7Dfunction%20navigateViaForm(o,t,e)%7Bconst%20c=document.createElement(&#39;form&#39;);c.style.visibility=&#39;hidden&#39;,c.method=o,c.action=t;for(const%20o%20of%20Object.keys(e))%7Bconst%20t=document.createElement(&#39;input&#39;);t.name=o,t.value=e%5Bo%5D,c.appendChild(t)%7Ddocument.body.appendChild(c),c.submit()%7Drun();})();void(0);">DuckStartYipGo<a>: Toggle between DuckDuckGo. Starpage.com and Google, maintaining the search query. From DuckDuckGo to Startpage.com, from Startpage.com to Google and from Google to DuckDuckGo. If none of these sites are active, search for the highlighted text via DuckDuckGo. If no text is highlighted, simply navigate to DuckDuckGo.
 	<pre>javascript:(function(){
 /**
- * DuckStartGo
+ * DuckStartYipGo
  *
  * Toggle between DuckDuckGo. Starpage.com and Google, maintaining the search
  * query. From DuckDuckGo to Startpage.com, from Startpage.com to Google and
@@ -27,20 +27,24 @@
  * highlighted text via DuckDuckGo. If no text is highlighted, simply navigate
  * to DuckDuckGo.
  *
+ * This bookmarklet now falls back to Yippy before Google.
+ *
  * Author: Mathias Fredriksson
- * Version: 0.0.1
+ * Version: 0.0.2
  */
 function run(){switch(window.location.hostname.replace(&#39;www.&#39;,&#39;&#39;)){case&#39;duckduckgo.com&#39;:
 return toStartpage(document.querySelector(&#39;[name=q]&#39;).value);case&#39;startpage.com&#39;:
-return toGoogle(document.querySelector(&#39;#q&#39;).value);case&#39;google.com&#39;:
-return toDuckDuckGo(document.querySelector(&#39;[name=q]&#39;).value,!1);default:let t=document.getSelection().toString()
-;if(&#39;&#39;!==t)return toDuckDuckGo(t,!1)}window.location=&#39;https://www.duckduckgo.com&#39;}function toStartpage(t){
-return navigateViaForm(&#39;POST&#39;,&#39;https://www.startpage.com/sp/search&#39;,{q:t})}function toDuckDuckGo(t,o){
-if(o)return navigateViaForm(&#39;POST&#39;,&#39;https://www.duckduckgo.com/&#39;,{q:t});t=encodeURIComponent(t),
-document.location=`https://www.duckduckgo.com/?q=${t}`}function toGoogle(t){t=encodeURIComponent(t),
-document.location=`https://www.google.com/search?q=${t}`}function navigateViaForm(t,o,e){
-const c=document.createElement(&#39;form&#39;);c.style.visibility=&#39;hidden&#39;,c.method=t,c.action=o;for(const t of Object.keys(e)){
-const o=document.createElement(&#39;input&#39;);o.name=t,o.value=e[t],c.appendChild(o)}document.body.appendChild(c),c.submit()}
+return toYippy(document.querySelector(&#39;#q&#39;).value);case&#39;yippy.com&#39;:
+return toGoogle(document.querySelector(&#39;#input-query&#39;).value);case&#39;google.com&#39;:
+return toDuckDuckGo(document.querySelector(&#39;[name=q]&#39;).value,!1);default:let o=document.getSelection().toString()
+;if(&#39;&#39;!==o)return toDuckDuckGo(o,!1)}window.location=&#39;https://www.duckduckgo.com&#39;}function toStartpage(o){
+return navigateViaForm(&#39;POST&#39;,&#39;https://www.startpage.com/sp/search&#39;,{q:o})}function toDuckDuckGo(o,t){
+if(t)return navigateViaForm(&#39;POST&#39;,&#39;https://www.duckduckgo.com/&#39;,{q:o});o=encodeURIComponent(o),
+document.location=`https://www.duckduckgo.com/?q=${o}`}function toYippy(o){o=encodeURIComponent(o),
+document.location=`https://yippy.com/search?query=${o}`}function toGoogle(o){o=encodeURIComponent(o),
+document.location=`https://www.google.com/search?q=${o}`}function navigateViaForm(o,t,e){
+const c=document.createElement(&#39;form&#39;);c.style.visibility=&#39;hidden&#39;,c.method=o,c.action=t;for(const o of Object.keys(e)){
+const t=document.createElement(&#39;input&#39;);t.name=o,t.value=e[o],c.appendChild(t)}document.body.appendChild(c),c.submit()}
 run();})();void(0);</pre>
 </li>
 

@@ -18,5 +18,3 @@ v.addEventListener(
 );
 
 setTimeout(() => v.webkitSetPresentationMode('picture-in-picture'), 3000);
-
-completion();

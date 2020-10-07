@@ -1,7 +1,7 @@
 /**
  * YouTube PiP
  *
- * Enable YouTube PiP on iOS devices.
+ * Enable YouTube PiP in macOS and on iOS devices.
  *
  * All credits for the original code go to Code Everywhere, from:
  * https://codeeverywhere.ca/post.php?id=56#Enable-YouTube-picture-in-picture-on-iOS-14-Safari-with-this-Siri-Shortcut

@@ -124,24 +124,6 @@ window.location=t}
 [&#39;://translate.google.com&#39;,&#39;://translate.googleusercontent.com&#39;].some(t=&gt;window.location.origin.includes(t))?untranslate():translate();})();void(0);</pre>
 </li>
 
-<li id="ios-youtube-pip">
-	<a href="javascript:(function(){/**%0A%20*%20YouTube%20PiP%0A%20*%0A%20*%20Enable%20YouTube%20PiP%20on%20iOS%20devices.%0A%20*%0A%20*%20All%20credits%20for%20the%20original%20code%20go%20to%20Code%20Everywhere,%20from:%0A%20*%20https://codeeverywhere.ca/post.php?id=56#Enable-YouTube-picture-in-picture-on-iOS-14-Safari-with-this-Siri-Shortcut%0A%20*%0A%20*%20Author:%20Mathias%20Fredriksson%0A%20*%20Version:%200.0.1%0A%20*/let%20v=document.querySelector(&#39;video&#39;);v.addEventListener(&#39;webkitpresentationmodechanged&#39;,e=%3Ee.stopPropagation(),!0),setTimeout(()=%3Ev.webkitSetPresentationMode(&#39;picture-in-picture&#39;),3e3);})();void(0);">YouTube PiP<a>: Enable YouTube PiP on iOS devices.
-	<pre>javascript:(function(){
-/**
- * YouTube PiP
- *
- * Enable YouTube PiP on iOS devices.
- *
- * All credits for the original code go to Code Everywhere, from:
- * https://codeeverywhere.ca/post.php?id=56#Enable-YouTube-picture-in-picture-on-iOS-14-Safari-with-this-Siri-Shortcut
- *
- * Author: Mathias Fredriksson
- * Version: 0.0.1
- */
-let v=document.querySelector(&#39;video&#39;);v.addEventListener(&#39;webkitpresentationmodechanged&#39;,e=&gt;e.stopPropagation(),!0),
-setTimeout(()=&gt;v.webkitSetPresentationMode(&#39;picture-in-picture&#39;),3e3);})();void(0);</pre>
-</li>
-
 <li id="pinboard-add">
 	<a href="javascript:(function(){/**%0A%20*%20Add%20to%20Pinboard%0A%20*%0A%20*%20Open%20a%20popup%20to%20bookmark%20the%20current%20page%20in%20Pinboard,%20information%20is%0A%20*%20extracted%20from%20meta-tags%20where%20possible%20and%20some%20smarts%20are%20used%20for%0A%20*%20constructing%20the%20title%20and%20description.%20If%20the%20document%20defines%0A%20*%20keywords,%20tags%20will%20be%20pre-populated%20as%20well.%0A%20*%0A%20*%20Author:%20Mathias%20Fredriksson%0A%20*%20Version:%200.0.1%0A%20*/const%20url=firstNonEmpty(metaP(&#39;og:url&#39;),metaP(&#39;al:web:url&#39;),location.href);let%20title=firstNonEmpty(metaID(&#39;title&#39;),metaP(&#39;title&#39;),metaP(&#39;og:title&#39;),metaP(&#39;twitter:title&#39;),query(&#39;h1&#39;,&#39;innerText&#39;),query(&#39;title&#39;,&#39;innerText&#39;)),description=firstNonEmpty(metaID(&#39;description&#39;),metaP(&#39;description&#39;),metaP(&#39;og:description&#39;),metaP(&#39;twitter:description&#39;),metaN(&#39;description&#39;));description&amp;&amp;(description=%60Description:%20$%7Bquote(description)%7D%60);let%20tags=%5B%5D,keywords=firstNonEmpty(metaN(&#39;keywords&#39;));keywords&amp;&amp;(tags=keywords.split(&#39;,&#39;).map(t=%3Et.trim()).filter(t=%3E&#39;&#39;!==t));const%20author=firstNonEmpty(metaID(&#39;author&#39;),metaN(&#39;author&#39;)),siteName=firstNonEmpty(metaP(&#39;og:site_name&#39;));author&amp;&amp;!title.includes(author)?title+=%60%20%7C%20$%7Bauthor%7D%60:siteName&amp;&amp;!title.includes(siteName)&amp;&amp;(title+=%60%20%7C%20$%7BsiteName%7D%60);let%20sel=document.getSelection().toString();&#39;&#39;!==sel&amp;&amp;(sel=%60Excerpt:%20$%7Bquote(sel)%7D%60),description&amp;&amp;sel?description=%60$%7Bdescription%7D%5Cn$%7Bsel%7D%60:sel&amp;&amp;(description=sel);const%20queryParams=%5B%5B&#39;url&#39;,url%5D,%5B&#39;title&#39;,title%5D,%5B&#39;description&#39;,description%5D,%5B&#39;tags&#39;,tags.join(&#39;,&#39;)%5D%5D.map(t=%3E%60$%7Bt%5B0%5D%7D=$%7BencodeURIComponent(t%5B1%5D)%7D%60).join(&#39;&amp;&#39;);function%20firstNonEmpty(...t)%7Bconst%5Be%5D=t.map(t=%3Et.trim()).filter(t=%3E&#39;&#39;!==t);return%20e%7C%7C&#39;&#39;%7Dfunction%20query(t,e)%7Bconst%20i=document.querySelector(t);return%20i?i%5Be%5D:&#39;&#39;%7Dfunction%20metaID(t)%7Breturn%20query(%60meta#$%7Bt%7D%60,&#39;content&#39;)%7Dfunction%20metaN(t)%7Breturn%20query(%60meta%5Bname=%22$%7Bt%7D%22%5D%60,&#39;content&#39;)%7Dfunction%20metaP(t)%7Blet%20e=query(%60meta%5Bproperty=%22$%7Bt%7D%22%5D%60,&#39;content&#39;);return%20e%7C%7C(e=query(%60meta%5Bitemprop=%22$%7Bt%7D%22%5D%60,&#39;content&#39;)),e%7Dfunction%20quote(t)%7Breturn%60%3Cblockquote%3E$%7Bt.trim()%7D%3C/blockquote%3E%60%7Dopen(%60https://pinboard.in/add?showtags=yes&amp;$%7BqueryParams%7D%60,&#39;Pinboard&#39;,&#39;toolbar=no,scrollbars=yes,width=750,height=700&#39;);})();void(0);">Add to Pinboard<a>: Open a popup to bookmark the current page in Pinboard, information is extracted from meta-tags where possible and some smarts are used for constructing the title and description. If the document defines keywords, tags will be pre-populated as well.
 	<pre>javascript:(function(){
@@ -232,6 +214,24 @@ const o=new RegExp(&#39;[&#39;+String.fromCharCode(8220)+String.fromCharCode(822
 function showArchive(o){o=encodeURI(o),window.location=`http://web.archive.org/web/submit?type=replay&amp;url=${o}`}
 function showLive(o){(o=o.split(&#39;/&#39;).slice(5).join(&#39;/&#39;)).startsWith(&#39;http&#39;)||(o=&#39;http://&#39;+o),window.location=o}
 loc.includes(&#39;://web.archive.org/web/&#39;)?showLive(loc):showArchive(loc);})();void(0);</pre>
+</li>
+
+<li id="youtube-pip">
+	<a href="javascript:(function(){/**%0A%20*%20YouTube%20PiP%0A%20*%0A%20*%20Enable%20YouTube%20PiP%20in%20macOS%20and%20on%20iOS%20devices.%0A%20*%0A%20*%20All%20credits%20for%20the%20original%20code%20go%20to%20Code%20Everywhere,%20from:%0A%20*%20https://codeeverywhere.ca/post.php?id=56#Enable-YouTube-picture-in-picture-on-iOS-14-Safari-with-this-Siri-Shortcut%0A%20*%0A%20*%20Author:%20Mathias%20Fredriksson%0A%20*%20Version:%200.0.1%0A%20*/let%20v=document.querySelector(&#39;video&#39;);v.addEventListener(&#39;webkitpresentationmodechanged&#39;,e=%3Ee.stopPropagation(),!0),setTimeout(()=%3Ev.webkitSetPresentationMode(&#39;picture-in-picture&#39;),3e3);})();void(0);">YouTube PiP<a>: Enable YouTube PiP in macOS and on iOS devices.
+	<pre>javascript:(function(){
+/**
+ * YouTube PiP
+ *
+ * Enable YouTube PiP in macOS and on iOS devices.
+ *
+ * All credits for the original code go to Code Everywhere, from:
+ * https://codeeverywhere.ca/post.php?id=56#Enable-YouTube-picture-in-picture-on-iOS-14-Safari-with-this-Siri-Shortcut
+ *
+ * Author: Mathias Fredriksson
+ * Version: 0.0.1
+ */
+let v=document.querySelector(&#39;video&#39;);v.addEventListener(&#39;webkitpresentationmodechanged&#39;,e=&gt;e.stopPropagation(),!0),
+setTimeout(()=&gt;v.webkitSetPresentationMode(&#39;picture-in-picture&#39;),3e3);})();void(0);</pre>
 </li>
 
 	</ul>

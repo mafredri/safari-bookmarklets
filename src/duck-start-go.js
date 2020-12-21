@@ -14,10 +14,9 @@ function run() {
 	switch (window.location.hostname.replace('www.', '')) {
 		case 'duckduckgo.com':
 			var q = document.querySelector('[name=q]').value;
-			return toStartpage(q);
+			return toStartpage(q, false); // POST is no longer possible due to Content-Security-Policy.
 		case 'startpage.com':
 			var q = document.querySelector('#q').value;
-			// return toDuckDuckGo(q, true);
 			return toGoogle(q);
 			break;
 		case 'google.com':
@@ -35,8 +34,12 @@ function run() {
 }
 run();
 
-function toStartpage(q) {
-	return navigateViaForm('POST', 'https://www.startpage.com/sp/search', {q});
+function toStartpage(q, post) {
+	if (post) {
+		return navigateViaForm('POST', 'https://www.startpage.com/sp/search', {q});
+	}
+	q = encodeURIComponent(q);
+	document.location = `https://www.startpage.com/sp/search?q=${q}`;
 }
 
 function toDuckDuckGo(q, post) {

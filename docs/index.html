@@ -106,7 +106,7 @@ window.googleTranslateInit=googleTranslateInit,document.head.append(inject);})()
 </li>
 
 <li id="google-translate">
-	<a href="javascript:(function(){/**%0A%20*%20Google%20Translate%0A%20*%0A%20*%20Translates%20the%20current%20page%20using%20automatic%20language%20detection.%20When%0A%20*%20clicked%20on%20a%20translated%20page,%20will%20return%20to%20the%20original.%0A%20*%0A%20*%20Author:%20Mathias%20Fredriksson%0A%20*%20Version:%200.0.0%0A%20*/function%20translate()%7Bconst%20t=&#39;https://translate.google.com/translate?sl=auto&amp;tl=en&amp;js=y&amp;prev=_t&amp;hl=en&amp;ie=UTF-8&amp;edit-text=&amp;u=&#39;+encodeURIComponent(window.location.href);window.location=t%7Dfunction%20untranslate()%7Blet%20t=window.location.search.split(&#39;&amp;&#39;).filter(t=%3Et.startsWith(&#39;u=&#39;))%5B0%5D.slice(2);t=decodeURIComponent(t),window.location=t%7D%5B&#39;://translate.google.com&#39;,&#39;://translate.googleusercontent.com&#39;%5D.some(t=%3Ewindow.location.origin.includes(t))?untranslate():translate();})();void(0);">Google Translate<a>: Translates the current page using automatic language detection. When clicked on a translated page, will return to the original.
+	<a href="javascript:(function(){/**%0A%20*%20Google%20Translate%0A%20*%0A%20*%20Translates%20the%20current%20page%20using%20automatic%20language%20detection.%20When%0A%20*%20clicked%20on%20a%20translated%20page,%20will%20return%20to%20the%20original.%0A%20*%0A%20*%20Author:%20Mathias%20Fredriksson%0A%20*%20Version:%200.0.1%0A%20*/function%20translate()%7Bconst%20t=&#39;https://translate.google.com/translate?sl=auto&amp;tl=en&amp;js=y&amp;prev=_t&amp;hl=en&amp;ie=UTF-8&amp;edit-text=&amp;u=&#39;+encodeURIComponent(window.location.href);window.location=t%7Dfunction%20untranslate()%7Blet%20t=window.location.search.split(&#39;&amp;&#39;).filter(t=%3Et.startsWith(&#39;u=&#39;))%5B0%5D.slice(2);t=decodeURIComponent(t),window.location=t%7Dfunction%20untranslateDomain()%7Bconst%20t=window.location.href.includes(&#39;_x_tr_sch=http&#39;),o=window.location.origin.replace(&#39;--&#39;,&#39;%5Bdash%5D&#39;).replace(&#39;-&#39;,&#39;.&#39;).replace(&#39;%5Bdash%5D&#39;,&#39;-&#39;).replace(&#39;.translate.goog&#39;,&#39;&#39;);let%20n=window.location.search.slice(1).split(&#39;&amp;&#39;).filter(t=%3E!t.startsWith(&#39;_x_tr_&#39;)).join(&#39;&amp;&#39;);n=n.length?%60?$%7Bn%7D%60:&#39;&#39;;let%20e=window.location.href.replace(window.location.origin,o).replace(window.location.search,n);t&amp;&amp;(e=e.replace(&#39;https://&#39;,&#39;http://&#39;)),window.location=e%7D%5B&#39;://translate.google.com&#39;,&#39;://translate.googleusercontent.com&#39;%5D.some(t=%3Ewindow.location.origin.includes(t))?untranslate():window.location.origin.endsWith(&#39;.translate.goog&#39;)?untranslateDomain():translate();})();void(0);">Google Translate<a>: Translates the current page using automatic language detection. When clicked on a translated page, will return to the original.
 	<pre>javascript:(function(){
 /**
  * Google Translate
@@ -115,14 +115,18 @@ window.googleTranslateInit=googleTranslateInit,document.head.append(inject);})()
  * clicked on a translated page, will return to the original.
  *
  * Author: Mathias Fredriksson
- * Version: 0.0.0
+ * Version: 0.0.1
  */
 function translate(){
 const t=&#39;https://translate.google.com/translate?sl=auto&amp;tl=en&amp;js=y&amp;prev=_t&amp;hl=en&amp;ie=UTF-8&amp;edit-text=&amp;u=&#39;+encodeURIComponent(window.location.href)
 ;window.location=t}function untranslate(){
 let t=window.location.search.split(&#39;&amp;&#39;).filter(t=&gt;t.startsWith(&#39;u=&#39;))[0].slice(2);t=decodeURIComponent(t),
-window.location=t}
-[&#39;://translate.google.com&#39;,&#39;://translate.googleusercontent.com&#39;].some(t=&gt;window.location.origin.includes(t))?untranslate():translate();})();void(0);</pre>
+window.location=t}function untranslateDomain(){
+const t=window.location.href.includes(&#39;_x_tr_sch=http&#39;),o=window.location.origin.replace(&#39;--&#39;,&#39;[dash]&#39;).replace(&#39;-&#39;,&#39;.&#39;).replace(&#39;[dash]&#39;,&#39;-&#39;).replace(&#39;.translate.goog&#39;,&#39;&#39;)
+;let n=window.location.search.slice(1).split(&#39;&amp;&#39;).filter(t=&gt;!t.startsWith(&#39;_x_tr_&#39;)).join(&#39;&amp;&#39;);n=n.length?`?${n}`:&#39;&#39;
+;let e=window.location.href.replace(window.location.origin,o).replace(window.location.search,n)
+;t&amp;&amp;(e=e.replace(&#39;https://&#39;,&#39;http://&#39;)),window.location=e}
+[&#39;://translate.google.com&#39;,&#39;://translate.googleusercontent.com&#39;].some(t=&gt;window.location.origin.includes(t))?untranslate():window.location.origin.endsWith(&#39;.translate.goog&#39;)?untranslateDomain():translate();})();void(0);</pre>
 </li>
 
 <li id="pinboard-add">

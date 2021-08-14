@@ -11,7 +11,7 @@
 	},
 	"dependencies": {
 		"esm": "^3.2.25",
-		"html-escaper": "^3.0.0",
+		"html-escaper": "^3.0.3",
 		"uglify-es": "^3.3.9"
 	},
 	"prettier": {

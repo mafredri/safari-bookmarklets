@@ -71,11 +71,12 @@ const queryParams = [
 	.map(x => `${x[0]}=${encodeURIComponent(x[1])}`)
 	.join('&');
 
-open(
-	`https://pinboard.in/add?showtags=yes&${queryParams}`,
-	'Pinboard',
-	'toolbar=no,scrollbars=yes,width=750,height=700',
-);
+const openURL = `https://pinboard.in/add?showtags=yes&${queryParams}`;
+if (url.startsWith('https://web.archive.org/web/')) {
+	window.location = openURL;
+} else {
+	open(openURL, 'Pinboard', 'toolbar=no,scrollbars=yes,width=750,height=700');
+}
 
 function firstNonEmpty(...list) {
 	const [x] = list.map(x => x.trim()).filter(x => x !== '');

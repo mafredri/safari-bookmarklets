@@ -40,8 +40,8 @@ let keywords = firstNonEmpty(metaN('keywords'));
 if (keywords) {
 	tags = keywords
 		.split(',')
-		.map(kw => kw.trim())
-		.filter(kw => kw !== '');
+		.map((kw) => kw.trim())
+		.filter((kw) => kw !== '');
 }
 
 // Add author or site information, if available.
@@ -72,7 +72,7 @@ const queryParams = [
 	['description', description],
 	['tags', tags.join(',')],
 ]
-	.map(x => `${x[0]}=${encodeURIComponent(x[1])}`)
+	.map((x) => `${x[0]}=${encodeURIComponent(x[1])}`)
 	.join('&');
 
 const openURL = `https://pinboard.in/add?showtags=yes&${queryParams}`;
@@ -83,7 +83,7 @@ if (url.startsWith('https://web.archive.org/web/')) {
 }
 
 function firstNonEmpty(...list) {
-	const [x] = list.map(x => x.trim()).filter(x => x !== '');
+	const [x] = list.map((x) => x.trim()).filter((x) => x !== '');
 	return x || '';
 }
 function query(elem, key) {

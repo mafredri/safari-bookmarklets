@@ -29,6 +29,10 @@ let description = firstNonEmpty(
 	metaN('description'), // Often a site description, low prio.
 );
 if (description) {
+	description = description.replace(
+		/\ Contribute to [^\ ]* development by creating an account on GitHub.$/,
+		'',
+	);
 	description = `Description: ${quote(description)}`;
 }
 let tags = [];

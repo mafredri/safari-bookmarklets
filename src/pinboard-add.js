@@ -6,8 +6,12 @@
  * constructing the title and description. If the document defines
  * keywords, tags will be pre-populated as well.
  *
+ * Note: Wayback Machine proxies Window.open via Wombat.js which causes
+ * a nested redirect and would break this bookmarklet. As a workaround,
+ * the window.location is changed instead of opening a new window.
+ *
  * Author: Mathias Fredriksson
- * Version: 0.0.1
+ * Version: 0.0.2
  */
 const url = firstNonEmpty(metaP('og:url'), metaP('al:web:url'), location.href);
 let title = firstNonEmpty(

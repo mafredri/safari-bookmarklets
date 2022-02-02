@@ -11,9 +11,14 @@
  * the window.location is changed instead of opening a new window.
  *
  * Author: Mathias Fredriksson
- * Version: 0.0.2
+ * Version: 0.0.3
  */
-const url = firstNonEmpty(metaP('og:url'), metaP('al:web:url'), location.href);
+const url = firstNonEmpty(
+	location.href.startsWith('https://web.archive.org/web/') ? location.href : '',
+	metaP('og:url'),
+	metaP('al:web:url'),
+	location.href,
+);
 let title = firstNonEmpty(
 	// Try to grab the title from metadata.
 	metaID('title'),
